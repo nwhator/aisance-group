@@ -1,0 +1,52 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  schema?: Record<string, any> | Array<Record<string, any>>;
+}
+
+const {
+  title,
+  description,
+  canonicalURL,
+  ogImage,
+  ogType = 'website',
+  schema,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={title}
+      description={description}
+      canonicalURL={canonicalURL}
+      ogImage={ogImage}
+      ogType={ogType}
+      schema={schema}
+    />
+  </head>
+  <body class="bg-[#FCF9F8] font-sans text-[#1C1B1B] antialiased selection:bg-[#C9A24A]/20 selection:text-[#12372A]">
+    <Header currentPath={currentPath} />
+    
+    <main class="w-full pt-20 bg-[#FCF9F8] min-h-[calc(100vh-20rem)] flex-grow focus:outline-none" id="main-content" tabindex="-1">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

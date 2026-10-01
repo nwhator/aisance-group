@@ -1,0 +1,82 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  category: string;
+  description: string;
+  tag: string;
+  href: string;
+  imageSrc?: string;
+  icon?: string;
+  className?: string;
+}
+
+const {
+  number,
+  title,
+  category,
+  description,
+  tag,
+  href,
+  imageSrc,
+  icon,
+  className = '',
+} = Astro.props;
+---
+
+<div class={`group bg-[#FCF9F8] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col border border-[#DDE7E1]/60 hover:border-[#C9A24A]/50 ${className}`}>
+  <!-- Card Header Media / Visual -->
+  <div class="relative h-60 w-full overflow-hidden bg-[#F0EDED]">
+    {imageSrc ? (
+      <img
+        src={imageSrc}
+        alt={`${title} - Aisance Group`}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+        loading="lazy"
+        width="600"
+        height="400"
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#12372A] to-[#1a4a39] text-[#C9A24A]">
+        {icon && <span class="material-symbols-outlined text-6xl group-hover:scale-110 transition-transform duration-300">{icon}</span>}
+      </div>
+    )}
+    <!-- Number Tag -->
+    <div class="absolute top-4 left-4 bg-[#12372A] text-[#FCF9F8] font-sans text-xs font-semibold px-2.5 py-1 rounded">
+      {number}
+    </div>
+    <!-- Category Badge -->
+    <div class="absolute bottom-4 left-4 bg-[#FCF9F8]/95 backdrop-blur-md px-3 py-1 rounded-full text-[#12372A] font-sans text-xs uppercase tracking-wider font-medium shadow-sm">
+      {category}
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="p-6 flex flex-col flex-grow justify-between bg-[#FCF9F8]">
+    <div>
+      <h3 class="font-serif text-2xl text-[#12372A] mb-3 font-semibold group-hover:text-[#C9A24A] transition-colors">
+        <a href={href} class="focus-visible:outline-none">
+          {title}
+        </a>
+      </h3>
+      <p class="font-sans text-sm text-[#414844] leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <!-- Footer pill strip -->
+    <div class="pt-6 mt-6 bg-[#F6F3F2] rounded-lg p-3 flex items-center justify-between">
+      <span class="font-sans text-xs uppercase text-[#C9A24A] font-bold tracking-widest">
+        {tag}
+      </span>
+      <a
+        href={href}
+        class="inline-flex items-center text-[#12372A] font-sans text-xs uppercase tracking-wider font-semibold hover:text-[#C9A24A] transition-colors gap-1 group/link"
+        aria-label={`Learn more about ${title}`}
+      >
+        <span>Details</span>
+        <span class="material-symbols-outlined text-[16px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</div>

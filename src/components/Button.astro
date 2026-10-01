@@ -1,0 +1,70 @@
+---
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'secondary' | 'gold' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+  target?: string;
+  rel?: string;
+  id?: string;
+  'aria-label'?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  size = 'md',
+  className = '',
+  target,
+  rel,
+  id,
+  'aria-label': ariaLabel,
+  ...rest
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-sans uppercase font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary select-none text-center cursor-pointer';
+
+const sizeStyles = {
+  sm: 'px-4 py-2 text-xs tracking-wider rounded',
+  md: 'px-6 py-2.5 text-xs sm:text-sm tracking-widest rounded-lg',
+  lg: 'px-8 py-3.5 text-sm tracking-widest rounded-lg',
+};
+
+const variantStyles = {
+  primary: 'bg-[#12372A] text-[#F7F5EF] border border-[#12372A] hover:bg-[#1a4a39] hover:border-[#C9A24A]/60 shadow-sm active:scale-[0.99]',
+  secondary: 'bg-transparent text-[#12372A] border border-[#C9A24A] hover:bg-[#C9A24A]/10 shadow-sm active:scale-[0.99]',
+  gold: 'bg-[#C9A24A] text-[#12372A] border border-[#C9A24A] hover:bg-[#ebc165] font-bold shadow-md active:scale-[0.99]',
+  outline: 'bg-transparent text-[#12372A] border border-[#DDE7E1] hover:border-[#C9A24A] hover:bg-[#f6f3f2] shadow-sm',
+  ghost: 'bg-transparent text-[#12372A] hover:text-[#C9A24A] underline-offset-4 hover:underline p-0',
+};
+
+const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`.trim();
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={combinedClasses}
+      target={target}
+      rel={rel ? rel : target === '_blank' ? 'noopener noreferrer' : undefined}
+      id={id}
+      aria-label={ariaLabel}
+      {...rest}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      class={combinedClasses}
+      id={id}
+      aria-label={ariaLabel}
+      {...rest}
+    >
+      <slot />
+    </button>
+  )
+}

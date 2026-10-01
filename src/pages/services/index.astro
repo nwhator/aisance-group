@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Button from '../../components/Button.astro';
+
+const seoTitle = 'Services | Aisance Group';
+const seoDescription = 'Explore Aisance Group’s five core service divisions: toiletries production, home & commercial cleaning, dry cleaning, food thrift, and errand logistics.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services' },
+];
+
+const services = [
+  {
+    num: '01',
+    category: 'Formulation & Personal Care',
+    tag: '01 / Production',
+    title: 'Toiletries Production',
+    tagline: 'Quality everyday products made with care.',
+    desc: 'Handcrafted botanical soaps, artisanal body butters, sanitizing solutions, and organic cleansers engineered for purity and skin nourishment. Built from sustainable local botanicals with clinical precision.',
+    features: [
+      'Handcrafted Small Batches',
+      'Eco-Conscious Botanical Ingredients',
+      'Institutional & Hospitality Supply',
+    ],
+    href: '/services/toiletries-production',
+    image: '/images/toiletries.png',
+    reversed: false,
+  },
+  {
+    num: '02',
+    category: 'Sanitation & Upkeep',
+    tag: '02 / Sanitation',
+    title: 'Home & Commercial Cleaning',
+    tagline: 'Professional cleaning for spaces that matter.',
+    desc: 'Meticulous deep-cleaning, post-construction sanitization, and scheduled housekeeping for high-end private residences, executive suites, and corporate facilities. We bring order, hygiene, and calm to every room.',
+    features: [
+      'Hospital-Grade Disinfection',
+      'Vetted & Insured Housekeeping Staff',
+      'Flexible Recurring Service Schedules',
+    ],
+    href: '/services/cleaning',
+    image: '/images/cleaning.png',
+    reversed: true,
+  },
+  {
+    num: '03',
+    category: 'Garment & Fabric Restoration',
+    tag: '03 / Fabric Care',
+    title: 'Dry Cleaning Services',
+    tagline: 'Professional care for your garments.',
+    desc: 'Master garment care, bespoke pressing, stain mitigation, and seasonal wardrobe curation handling silk, fine wool, traditional attire, and ceremonial heirloom pieces with restorative sensitivity.',
+    features: [
+      'Couture & Traditional Attire Precision',
+      'Eco-Friendly Gentle Solvents',
+      'Scheduled Valet Doorstep Pickup',
+    ],
+    href: '/services/dry-cleaning',
+    image: '/images/dry-cleaning.png',
+    reversed: false,
+  },
+  {
+    num: '04',
+    category: 'Provisions & Bulk Pantry',
+    tag: '04 / Provisions',
+    title: 'Food Thrift',
+    tagline: 'Convenient access to everyday food supplies.',
+    desc: 'Direct wholesale farm-to-table grain bundles, pantry staples, and curated food provisions delivering substantial household savings across Nigerian estates and corporate enterprises.',
+    features: [
+      'Stone-Free Clean Grain Processing',
+      'Wholesale Direct Farm Savings',
+      'Flexible Monthly Pantry Deliveries',
+    ],
+    href: '/services/food-thrift',
+    image: '/images/food-thrift.png',
+    reversed: true,
+  },
+  {
+    num: '05',
+    category: 'Concierge Dispatch & Fleet',
+    tag: '05 / Logistics',
+    title: 'Errand & Logistics',
+    tagline: 'Prompt and reliable delivery solutions.',
+    desc: 'Discreet personal concierge errands, secure document dispatch, and time-critical deliveries handled by vetted, professional dispatch personnel.',
+    features: [
+      'Bonded & Guarantor-Vetted Dispatchers',
+      'Real-Time Point-to-Point Handoff',
+      'Priority Corporate Retainer Fleets',
+    ],
+    href: '/services/errand-logistics',
+    image: '/images/logistics.png',
+    reversed: false,
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <!-- Top Editorial Header & Intro -->
+  <section class="w-full bg-[#FFFFFF] px-6 lg:px-12 pt-8 pb-14 border-b border-[#DDE7E1]">
+    <div class="max-w-7xl mx-auto flex flex-col">
+      <!-- Breadcrumbs & Meta Tag -->
+      <div class="flex items-center justify-between flex-wrap gap-4 pb-8">
+        <Breadcrumbs items={breadcrumbs} />
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#F0EDED] rounded-lg text-[#12372A] font-sans text-xs tracking-widest uppercase border border-[#DDE7E1]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C9A24A]"></span>
+          <span>Conglomerate Portfolio Overview</span>
+        </div>
+      </div>
+
+      <!-- Main Headline Block -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pt-2">
+        <div class="lg:col-span-8 flex flex-col gap-4">
+          <div class="flex items-center gap-3">
+            <span class="h-px w-12 bg-[#C9A24A]"></span>
+            <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Consolidated Excellence</span>
+          </div>
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[64px] text-[#12372A] tracking-tight font-normal">
+            Services Designed Around Everyday Needs.
+          </h1>
+        </div>
+        <div class="lg:col-span-4 flex flex-col justify-end">
+          <p class="font-sans text-base text-[#414844] leading-relaxed">
+            A unified standard of excellence across five essential lifestyle and corporate verticals in Nigeria. Thoughtfully engineered for both personal tranquility and enterprise efficiency.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Services Showcase (Bespoke Alternating Architecture) -->
+  <section class="w-full bg-[#FCF9F8] px-6 lg:px-12 py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto flex flex-col gap-16 lg:gap-20">
+      {services.map((svc) => (
+        <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center bg-[#FFFFFF] p-6 lg:p-10 rounded-2xl shadow-sm border border-[#DDE7E1]">
+          <div class={`lg:col-span-7 relative group overflow-hidden rounded-xl bg-[#F0EDED] ${svc.reversed ? 'lg:order-2' : ''}`}>
+            <div class="aspect-[16/10] w-full overflow-hidden">
+              <img
+                src={svc.image}
+                alt={`${svc.title} by Aisance Group`}
+                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+                width="700"
+                height="440"
+              />
+            </div>
+            <div class="absolute top-4 left-4 bg-[#12372A]/90 text-[#FCF9F8] backdrop-blur-md px-3 py-1 rounded font-sans text-xs uppercase tracking-widest font-semibold">
+              {svc.tag}
+            </div>
+          </div>
+
+          <div class={`lg:col-span-5 flex flex-col justify-center ${svc.reversed ? 'lg:order-1' : ''}`}>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">{svc.category}</span>
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-4xl text-[#12372A] font-bold tracking-tight mb-2">
+              {svc.title}
+            </h2>
+
+            <p class="font-serif text-lg italic text-[#C9A24A] font-medium mb-4">
+              "{svc.tagline}"
+            </p>
+
+            <p class="font-sans text-sm text-[#414844] leading-relaxed mb-6">
+              {svc.desc}
+            </p>
+
+            <div class="flex flex-col gap-2.5 mb-8">
+              {svc.features.map((feature) => (
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-[#C9A24A] text-[18px]">check_circle</span>
+                  <span class="font-sans text-sm text-[#1C1B1B] font-medium">{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4">
+              <Button href={svc.href} variant="primary" size="md">
+                <span>View Division Details</span>
+                <span class="material-symbols-outlined text-sm ml-2">arrow_forward</span>
+              </Button>
+              <Button href={`/request-service?service=${encodeURIComponent(svc.title)}`} variant="secondary" size="md">
+                Request Service
+              </Button>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="w-full bg-[#12372A] py-20 text-[#FCF9F8] text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
+        Need Multiple Divisions Coordinated?
+      </h2>
+      <p class="font-sans text-base sm:text-lg text-[#A8CFBD] mt-4 max-w-2xl mx-auto leading-relaxed">
+        Our unified concierge desk simplifies estate management and corporate service contracts under single-point accountability.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <Button href="/request-service" variant="gold" size="lg">
+          Request a Service
+        </Button>
+        <Button href="tel:08141937193" variant="secondary" size="lg" className="border-[#FCF9F8] text-[#FCF9F8] hover:bg-[#FCF9F8]/10">
+          Call 08141937193
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

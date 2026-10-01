@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+
+const seoTitle = 'Page Not Found | Aisance Group';
+const seoDescription = 'The page you requested could not be found. Return to Aisance Group home or explore our five service divisions.';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <section class="w-full max-w-4xl mx-auto px-6 py-24 lg:py-36 text-center flex flex-col items-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAE7E7] text-[#12372A] font-sans text-xs uppercase tracking-widest font-semibold border border-[#DDE7E1] mb-6">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#C9A24A]"></span>
+      <span>Status 404 — Direction Notice</span>
+    </div>
+
+    <div class="font-serif text-6xl sm:text-8xl text-[#C9A24A] font-bold mb-4 tracking-tight">
+      404
+    </div>
+
+    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] font-normal tracking-tight max-w-xl">
+      Looks like you've taken a wrong turn.
+    </h1>
+
+    <p class="font-sans text-base sm:text-lg text-[#414844] mt-4 max-w-md leading-relaxed">
+      The page or division document you are seeking is either relocated or unavailable. Please reorient using our primary pathways below.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+      <Button href="/" variant="primary" size="lg">
+        Back to Home
+      </Button>
+      <Button href="/services" variant="secondary" size="lg">
+        Explore Services
+      </Button>
+    </div>
+  </section>
+</BaseLayout>

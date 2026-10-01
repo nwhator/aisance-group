@@ -1,0 +1,284 @@
+---
+interface Props {
+  initialService?: string;
+}
+
+const { initialService = '' } = Astro.props;
+---
+
+<div class="bg-[#FCF9F8] rounded-2xl p-6 sm:p-10 shadow-sm border border-[#DDE7E1]">
+  <!-- Form Header -->
+  <div class="flex items-center justify-between pb-6 mb-8 border-b border-[#DDE7E1]">
+    <div>
+      <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Protocol Formulation</span>
+      <h2 class="font-serif text-2xl sm:text-3xl text-[#12372A] mt-1 font-semibold">Service Engagement Docket</h2>
+    </div>
+    <span class="hidden sm:inline-block font-sans text-xs font-semibold text-[#414844] px-3 py-1 bg-[#F0EDED] rounded-full border border-[#DDE7E1]">
+      Official Intake
+    </span>
+  </div>
+
+  <form id="service-request-form" class="flex flex-col gap-8" novalidate>
+    <!-- Section 1: Client Information -->
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-sans text-xs text-[#C9A24A] font-bold">01</span>
+        <h3 class="font-sans text-xs uppercase tracking-wider text-[#12372A] font-bold">Primary Client Information</h3>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="sm:col-span-2 flex flex-col gap-1.5">
+          <label class="font-sans text-xs uppercase tracking-wider text-[#414844] font-semibold" for="full-name">
+            Full Name <span class="text-red-700" aria-hidden="true">*</span>
+          </label>
+          <input
+            id="full-name"
+            name="fullName"
+            type="text"
+            required
+            aria-required="true"
+            placeholder="e.g. Olumide Adeleke"
+            class="w-full bg-[#F6F3F2] px-4 py-3 rounded-lg text-[#1C1B1B] font-sans text-sm border border-[#DDE7E1] focus:bg-[#FFFFFF] focus:border-[#C9A24A] focus:outline-none transition-all"
+          />
+          <span class="hidden text-xs text-red-700 mt-1 font-sans" id="error-fullName">Please enter your full name.</span>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="font-sans text-xs uppercase tracking-wider text-[#414844] font-semibold" for="phone-number">
+            Phone Number <span class="text-red-700" aria-hidden="true">*</span>
+          </label>
+          <input
+            id="phone-number"
+            name="phoneNumber"
+            type="tel"
+            required
+            aria-required="true"
+            placeholder="0814 000 0000"
+            class="w-full bg-[#F6F3F2] px-4 py-3 rounded-lg text-[#1C1B1B] font-sans text-sm border border-[#DDE7E1] focus:bg-[#FFFFFF] focus:border-[#C9A24A] focus:outline-none transition-all"
+          />
+          <span class="hidden text-xs text-red-700 mt-1 font-sans" id="error-phoneNumber">Please enter a valid contact phone number.</span>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="font-sans text-xs uppercase tracking-wider text-[#414844] font-semibold" for="email-address">
+            Email Address <span class="text-red-700" aria-hidden="true">*</span>
+          </label>
+          <input
+            id="email-address"
+            name="emailAddress"
+            type="email"
+            required
+            aria-required="true"
+            placeholder="olumide@example.com"
+            class="w-full bg-[#F6F3F2] px-4 py-3 rounded-lg text-[#1C1B1B] font-sans text-sm border border-[#DDE7E1] focus:bg-[#FFFFFF] focus:border-[#C9A24A] focus:outline-none transition-all"
+          />
+          <span class="hidden text-xs text-red-700 mt-1 font-sans" id="error-emailAddress">Please enter a valid email address.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Service Selection -->
+    <div class="flex flex-col gap-4 pt-2 border-t border-[#DDE7E1]/60">
+      <div class="flex items-center gap-2">
+        <span class="font-sans text-xs text-[#C9A24A] font-bold">02</span>
+        <h3 class="font-sans text-xs uppercase tracking-wider text-[#12372A] font-bold">Service Needed</h3>
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label class="font-sans text-xs uppercase tracking-wider text-[#414844] font-semibold" for="service-needed">
+          Select Service Division <span class="text-red-700" aria-hidden="true">*</span>
+        </label>
+        <select
+          id="service-needed"
+          name="serviceNeeded"
+          required
+          aria-required="true"
+          class="w-full bg-[#F6F3F2] px-4 py-3 rounded-lg text-[#1C1B1B] font-sans text-sm border border-[#DDE7E1] focus:bg-[#FFFFFF] focus:border-[#C9A24A] focus:outline-none transition-all"
+        >
+          <option value="" disabled selected={!initialService}>Select from our five specialized divisions</option>
+          <option value="Toiletries Production" selected={initialService === 'toiletries' || initialService === 'Toiletries Production'}>
+            Toiletries Production (Artisanal Botanical Formulations &amp; Soap Supply)
+          </option>
+          <option value="Home & Commercial Cleaning" selected={initialService === 'cleaning' || initialService === 'Home & Commercial Cleaning'}>
+            Home &amp; Commercial Cleaning (Deep Sanitization, Housekeeping, Facility Upkeep)
+          </option>
+          <option value="Dry Cleaning Services" selected={initialService === 'dry-cleaning' || initialService === 'Dry Cleaning Services'}>
+            Dry Cleaning Services (Couture Fabric Care &amp; Garment Restoration)
+          </option>
+          <option value="Food Thrift" selected={initialService === 'food-thrift' || initialService === 'Food Thrift'}>
+            Food Thrift (Wholesale Farm-Direct Provisions &amp; Pantry Bundles)
+          </option>
+          <option value="Errand & Logistics" selected={initialService === 'errand-logistics' || initialService === 'Errand & Logistics'}>
+            Errand &amp; Logistics (Corporate Couriers &amp; Concierge Dispatch)
+          </option>
+          <option value="Other" selected={initialService === 'other' || initialService === 'Other'}>
+            Other Bespoke Requirement
+          </option>
+        </select>
+        <span class="hidden text-xs text-red-700 mt-1 font-sans" id="error-serviceNeeded">Please select a service division.</span>
+      </div>
+    </div>
+
+    <!-- Section 3: Date & Location -->
+    <div class="flex flex-col gap-4 pt-2 border-t border-[#DDE7E1]/60">
+      <div class="flex items-center gap-2">
+        <span class="font-sans text-xs text-[#C9A24A] font-bold">03</span>
+        <h3 class="font-sans text-xs uppercase tracking-wider text-[#12372A] font-bold">Preferred Schedule &amp; Location</h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="flex flex-col gap-1.5">
+          <label class="font-sans text-xs uppercase tracking-wider text-[#414844] font-semibold" for="preferred-date">
+            Preferred Date <span class="text-red-700" aria-hidden="true">*</span>
+          </label>
+          <input
+            id="preferred-date"
+            name="preferredDate"
+            type="date"
+            required
+            aria-required="true"
+            class="w-full bg-[#F6F3F2] px-4 py-3 rounded-lg text-[#1C1B1B] font-sans text-sm border border-[#DDE7E1] focus:bg-[#FFFFFF] focus:border-[#C9A24A] focus:outline-none transition-all"
+          />
+          <span class="hidden text-xs text-red-700 mt-1 font-sans" id="error-preferredDate">Please select your preferred date.</span>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="font-sans text-xs uppercase tracking-wider text-[#414844] font-semibold" for="location">
+            Location / Estate <span class="text-red-700" aria-hidden="true">*</span>
+          </label>
+          <input
+            id="location"
+            name="location"
+            type="text"
+            required
+            aria-required="true"
+            placeholder="e.g. Ikoyi, Victoria Island, Ikeja, Lekki Phase 1, Abuja"
+            class="w-full bg-[#F6F3F2] px-4 py-3 rounded-lg text-[#1C1B1B] font-sans text-sm border border-[#DDE7E1] focus:bg-[#FFFFFF] focus:border-[#C9A24A] focus:outline-none transition-all"
+          />
+          <span class="hidden text-xs text-red-700 mt-1 font-sans" id="error-location">Please enter your location.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Message / Details -->
+    <div class="flex flex-col gap-4 pt-2 border-t border-[#DDE7E1]/60">
+      <div class="flex items-center gap-2">
+        <span class="font-sans text-xs text-[#C9A24A] font-bold">04</span>
+        <h3 class="font-sans text-xs uppercase tracking-wider text-[#12372A] font-bold">Message &amp; Directives</h3>
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label class="font-sans text-xs uppercase tracking-wider text-[#414844] font-semibold" for="message">
+          Message / Requirement Details
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Describe your request (e.g. home square meters, garment types, bulk pantry requirements, delivery instructions)..."
+          class="w-full bg-[#F6F3F2] px-4 py-3 rounded-lg text-[#1C1B1B] font-sans text-sm border border-[#DDE7E1] focus:bg-[#FFFFFF] focus:border-[#C9A24A] focus:outline-none transition-all"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Submission Notice & Button -->
+    <div class="flex flex-col gap-4 pt-2">
+      <div id="form-feedback" class="hidden p-4 rounded-lg font-sans text-sm"></div>
+
+      <button
+        type="submit"
+        id="submit-button"
+        class="w-full bg-[#12372A] text-[#F7F5EF] font-sans text-sm uppercase tracking-widest py-4 px-6 rounded-lg hover:bg-[#1a4a39] border border-[#C9A24A]/40 transition-all flex items-center justify-center gap-3 shadow-md font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A24A] active:scale-[0.99] cursor-pointer"
+      >
+        <span>Submit Service Request</span>
+        <span class="material-symbols-outlined text-[#FFDF9E] text-xl">arrow_forward</span>
+      </button>
+
+      <p class="font-sans text-xs text-center text-[#414844] flex items-center justify-center gap-1.5 pt-1">
+        <span class="material-symbols-outlined text-sm text-[#C9A24A]">lock</span>
+        <span>No upfront payment required. Our client desk confirms scope prior to service.</span>
+      </p>
+    </div>
+  </form>
+</div>
+
+<script>
+  function setupServiceForm() {
+    const form = document.getElementById('service-request-form') as HTMLFormElement | null;
+    if (!form) return;
+
+    const fields = [
+      { id: 'full-name', errorId: 'error-fullName', validator: (val: string) => val.trim().length > 1 },
+      { id: 'phone-number', errorId: 'error-phoneNumber', validator: (val: string) => val.trim().length >= 7 },
+      { id: 'email-address', errorId: 'error-emailAddress', validator: (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()) },
+      { id: 'service-needed', errorId: 'error-serviceNeeded', validator: (val: string) => Boolean(val && val.trim()) },
+      { id: 'preferred-date', errorId: 'error-preferredDate', validator: (val: string) => Boolean(val) },
+      { id: 'location', errorId: 'error-location', validator: (val: string) => val.trim().length > 1 },
+    ];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let hasError = false;
+
+      fields.forEach((field) => {
+        const input = document.getElementById(field.id) as HTMLInputElement | HTMLSelectElement | null;
+        const error = document.getElementById(field.errorId);
+        if (!input || !error) return;
+
+        const isValid = field.validator(input.value);
+        if (!isValid) {
+          error.classList.remove('hidden');
+          input.classList.add('border-red-500', 'bg-red-50/20');
+          if (!hasError) input.focus();
+          hasError = true;
+        } else {
+          error.classList.add('hidden');
+          input.classList.remove('border-red-500', 'bg-red-50/20');
+        }
+      });
+
+      if (!hasError) {
+        // Collect form data
+        const formData = new FormData(form);
+        const fullName = formData.get('fullName')?.toString() || '';
+        const serviceNeeded = formData.get('serviceNeeded')?.toString() || '';
+
+        // Store in sessionStorage for confirmation page display
+        try {
+          sessionStorage.setItem('aisance_last_request', JSON.stringify({
+            fullName,
+            serviceNeeded,
+            preferredDate: formData.get('preferredDate'),
+            location: formData.get('location'),
+            timestamp: new Date().toISOString()
+          }));
+        } catch (_) {}
+
+        // Forward to the confirmation screen
+        const params = new URLSearchParams({
+          name: fullName,
+          service: serviceNeeded,
+        });
+        window.location.href = `/request-success?${params.toString()}`;
+      }
+    });
+
+    // Clear validation error on change
+    fields.forEach((field) => {
+      const input = document.getElementById(field.id);
+      const error = document.getElementById(field.errorId);
+      if (input && error) {
+        input.addEventListener('input', () => {
+          error.classList.add('hidden');
+          input.classList.remove('border-red-500', 'bg-red-50/20');
+        });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupServiceForm);
+  } else {
+    setupServiceForm();
+  }
+</script>

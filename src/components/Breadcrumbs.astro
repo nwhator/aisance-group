@@ -1,0 +1,50 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  className?: string;
+}
+
+const { items, className = '' } = Astro.props;
+
+const baseUrl = 'https://aisancegroup.com';
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: item.href ? (item.href.startsWith('http') ? item.href : `${baseUrl}${item.href}`) : undefined,
+  })),
+};
+---
+
+<nav aria-label="Breadcrumb" class={`flex items-center gap-2 font-sans text-xs uppercase tracking-widest text-[#414844] ${className}`}>
+  <ol class="flex items-center flex-wrap gap-2">
+    {items.map((item, index) => {
+      const isLast = index === items.length - 1;
+      return (
+        <li class="flex items-center gap-2">
+          {index > 0 && <span class="text-[#C9A24A]/60 select-none">/</span>}
+          {isLast || !item.href ? (
+            <span class="text-[#12372A] font-semibold" aria-current={isLast ? 'page' : undefined}>
+              {item.label}
+            </span>
+          ) : (
+            <a href={item.href} class="hover:text-[#12372A] transition-colors focus-visible:outline-none">
+              {item.label}
+            </a>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

@@ -1,0 +1,222 @@
+---
+import Logo from './Logo.astro';
+import Button from './Button.astro';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const services = [
+  { name: 'Toiletries Production', href: '/services/toiletries-production', num: '01' },
+  { name: 'Home & Commercial Cleaning', href: '/services/cleaning', num: '02' },
+  { name: 'Dry Cleaning Services', href: '/services/dry-cleaning', num: '03' },
+  { name: 'Food Thrift', href: '/services/food-thrift', num: '04' },
+  { name: 'Errand & Logistics', href: '/services/errand-logistics', num: '05' },
+];
+---
+
+<div
+  id="mobile-menu-drawer"
+  class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden pointer-events-none"
+  aria-label="Mobile Navigation Menu"
+  aria-modal="true"
+  role="dialog"
+  hidden
+>
+  <!-- Backdrop overlay -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-[#002116]/60 backdrop-blur-sm transition-opacity opacity-0 pointer-events-none"></div>
+
+  <!-- Menu Drawer -->
+  <div class="relative w-full max-w-sm bg-[#FCF9F8] h-full shadow-2xl flex flex-col justify-between overflow-y-auto p-6 z-10 border-r border-[#DDE7E1]">
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between pb-6 border-b border-[#DDE7E1]">
+      <Logo variant="light" className="h-9 w-auto" />
+      <button
+        id="close-mobile-menu"
+        class="p-2 rounded-lg text-[#12372A] hover:bg-[#F0EDED] transition-colors focus-visible:outline-none"
+        aria-label="Close Navigation Menu"
+      >
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex flex-col py-6 gap-2">
+      <a
+        href="/"
+        class={`px-4 py-3 rounded-lg font-sans text-sm uppercase tracking-wider font-semibold transition-colors ${
+          currentPath === '/' ? 'bg-[#12372A] text-[#FCF9F8]' : 'text-[#12372A] hover:bg-[#F0EDED]'
+        }`}
+      >
+        Home
+      </a>
+
+      <a
+        href="/about"
+        class={`px-4 py-3 rounded-lg font-sans text-sm uppercase tracking-wider font-semibold transition-colors ${
+          currentPath === '/about' ? 'bg-[#12372A] text-[#FCF9F8]' : 'text-[#12372A] hover:bg-[#F0EDED]'
+        }`}
+      >
+        About
+      </a>
+
+      <!-- Services Submenu Accordion -->
+      <div class="flex flex-col">
+        <button
+          id="mobile-services-toggle"
+          class="flex items-center justify-between px-4 py-3 rounded-lg font-sans text-sm uppercase tracking-wider font-semibold text-[#12372A] hover:bg-[#F0EDED] transition-colors w-full text-left"
+          aria-expanded="false"
+          aria-controls="mobile-services-list"
+        >
+          <span>Services</span>
+          <span id="mobile-services-arrow" class="material-symbols-outlined text-xl transition-transform duration-200">expand_more</span>
+        </button>
+
+        <div id="mobile-services-list" class="hidden pl-4 pr-2 py-2 flex flex-col gap-1 bg-[#F6F3F2] rounded-lg mt-1" role="region" aria-label="Services Submenu">
+          <a
+            href="/services"
+            class="px-3 py-2 text-xs uppercase tracking-wider font-bold text-[#C9A24A] hover:text-[#12372A] flex items-center justify-between"
+          >
+            <span>Overview</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+          {services.map((s) => (
+            <a
+              href={s.href}
+              class={`px-3 py-2 rounded text-xs font-medium tracking-wide flex items-center justify-between transition-colors ${
+                currentPath === s.href ? 'bg-[#12372A] text-[#FCF9F8]' : 'text-[#414844] hover:text-[#12372A] hover:bg-[#EAE7E7]'
+              }`}
+            >
+              <span>{s.name}</span>
+              <span class="text-[10px] text-[#C9A24A] font-bold">{s.num}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a
+        href="/why-aisance"
+        class={`px-4 py-3 rounded-lg font-sans text-sm uppercase tracking-wider font-semibold transition-colors ${
+          currentPath === '/why-aisance' ? 'bg-[#12372A] text-[#FCF9F8]' : 'text-[#12372A] hover:bg-[#F0EDED]'
+        }`}
+      >
+        Why Aisance
+      </a>
+
+      <a
+        href="/faq"
+        class={`px-4 py-3 rounded-lg font-sans text-sm uppercase tracking-wider font-semibold transition-colors ${
+          currentPath === '/faq' ? 'bg-[#12372A] text-[#FCF9F8]' : 'text-[#12372A] hover:bg-[#F0EDED]'
+        }`}
+      >
+        FAQ
+      </a>
+
+      <a
+        href="/contact"
+        class={`px-4 py-3 rounded-lg font-sans text-sm uppercase tracking-wider font-semibold transition-colors ${
+          currentPath === '/contact' ? 'bg-[#12372A] text-[#FCF9F8]' : 'text-[#12372A] hover:bg-[#F0EDED]'
+        }`}
+      >
+        Contact
+      </a>
+    </nav>
+
+    <!-- Drawer Footer Actions -->
+    <div class="pt-6 border-t border-[#DDE7E1] flex flex-col gap-4">
+      <a
+        href="tel:08141937193"
+        class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-[#F0EDED] text-[#12372A] font-sans text-sm font-semibold hover:bg-[#E5E2E1] transition-colors"
+      >
+        <span class="material-symbols-outlined text-[#C9A24A] text-xl">call</span>
+        <span>08141937193</span>
+      </a>
+
+      <a
+        href="/request-service"
+        class="w-full inline-flex items-center justify-center bg-[#12372A] text-[#F7F5EF] font-sans text-xs uppercase tracking-widest px-4 py-3 rounded-lg border border-[#C9A24A]/40 hover:bg-[#1a4a39] font-bold shadow-md transition-all text-center"
+      >
+        Request a Service
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupMobileMenu() {
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+    const closeBtn = document.getElementById('close-mobile-menu');
+    const openBtn = document.getElementById('open-mobile-menu');
+    const servicesToggle = document.getElementById('mobile-services-toggle');
+    const servicesList = document.getElementById('mobile-services-list');
+    const servicesArrow = document.getElementById('mobile-services-arrow');
+
+    function openMenu() {
+      if (!drawer || !backdrop) return;
+      drawer.removeAttribute('hidden');
+      drawer.classList.remove('pointer-events-none');
+      requestAnimationFrame(() => {
+        drawer.classList.remove('-translate-x-full');
+        drawer.classList.add('translate-x-0');
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+        backdrop.classList.add('opacity-100');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    function closeMenu() {
+      if (!drawer || !backdrop) return;
+      drawer.classList.remove('translate-x-0');
+      drawer.classList.add('-translate-x-full');
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        drawer.setAttribute('hidden', '');
+        drawer.classList.add('pointer-events-none');
+      }, 300);
+    }
+
+    if (openBtn) {
+      openBtn.addEventListener('click', openMenu);
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeMenu);
+    }
+    if (backdrop) {
+      backdrop.addEventListener('click', closeMenu);
+    }
+
+    // Keyboard support: Escape closes menu
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer && !drawer.hasAttribute('hidden')) {
+        closeMenu();
+      }
+    });
+
+    // Services Submenu Toggle
+    if (servicesToggle && servicesList && servicesArrow) {
+      servicesToggle.addEventListener('click', () => {
+        const isExpanded = servicesToggle.getAttribute('aria-expanded') === 'true';
+        servicesToggle.setAttribute('aria-expanded', String(!isExpanded));
+        if (isExpanded) {
+          servicesList.classList.add('hidden');
+          servicesArrow.classList.remove('rotate-180');
+        } else {
+          servicesList.classList.remove('hidden');
+          servicesArrow.classList.add('rotate-180');
+        }
+      });
+    }
+  }
+
+  // Initialize on load and after client navigation
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMobileMenu);
+  } else {
+    setupMobileMenu();
+  }
+</script>

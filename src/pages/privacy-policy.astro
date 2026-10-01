@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const seoTitle = 'Privacy Policy | Aisance Group';
+const seoDescription = 'Privacy Policy of Aisance Group outlining how we collect, handle, and safeguard client information across our five service divisions.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Privacy Policy' },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <section class="w-full max-w-4xl mx-auto px-6 lg:px-12 py-12 lg:py-20">
+    <div class="mb-6">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+
+    <div class="mb-10 pb-6 border-b border-[#DDE7E1]">
+      <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Governance &amp; Trust</span>
+      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2 font-normal">Privacy Policy</h1>
+      <p class="font-sans text-sm text-[#414844] mt-2">Last Updated: October 2026</p>
+    </div>
+
+    <div class="prose font-sans text-sm sm:text-base text-[#414844] space-y-6 leading-relaxed">
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">1. Commitment to Discretion</h2>
+        <p>
+          At Aisance Group, client confidentiality is a foundational principle of our multi-sector operations. Whether managing personal estate housekeeping, custom apothecary formulations, couture garment care, food provisions, or sensitive corporate document transit, we treat all client data with the utmost discretion.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">2. Information We Collect</h2>
+        <p>We only collect information directly necessary to provide our services, including:</p>
+        <ul class="list-disc pl-5 space-y-2 text-[#1C1B1B]">
+          <li><strong>Contact Details:</strong> Legal name, corporate designation, telephone numbers, and email addresses.</li>
+          <li><strong>Service Specifications:</strong> Deployment addresses, estate gate protocols, preferred delivery schedules, and scope requirements.</li>
+          <li><strong>Communication Records:</strong> Written directives, special garment care instructions, and customer feedback.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">3. Use of Information</h2>
+        <p>Your information is used strictly for:</p>
+        <ul class="list-disc pl-5 space-y-2 text-[#1C1B1B]">
+          <li>Executing and dispatching requested services accurately.</li>
+          <li>Providing itemized formal quotations and verified invoicing.</li>
+          <li>Maintaining chain-of-custody logs for logistics and garment handoffs.</li>
+          <li>Coordinating client communication regarding active service bookings.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">4. Non-Disclosure &amp; Third-Party Policy</h2>
+        <p>
+          Aisance Group does not sell, lease, or monetize client personal data to third parties. Information is only accessible to authorized, background-vetted personnel assigned directly to your service docket.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">5. Contact Information</h2>
+        <p>
+          For privacy inquiries or data update requests, please contact our administrative desk:
+        </p>
+        <div class="p-4 bg-[#F6F3F2] rounded-xl border border-[#DDE7E1] text-[#12372A] font-sans text-sm">
+          <p><strong>Aisance Group Privacy &amp; Legal Desk</strong></p>
+          <p>Email: <a href="mailto:hello.aisancegroup@gmail.com" class="text-[#C9A24A] hover:underline">hello.aisancegroup@gmail.com</a></p>
+          <p>Phone: <a href="tel:08141937193" class="text-[#C9A24A] hover:underline">08141937193</a></p>
+        </div>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Button from '../../components/Button.astro';
+
+const seoTitle = 'Errand & Logistics Services | Aisance Group';
+const seoDescription = 'Discreet personal concierge errands, secure corporate document dispatch, and dedicated courier fleets across Nigeria by Aisance Group.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Errand & Logistics' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Errand & Logistics',
+  provider: {
+    '@type': 'Organization',
+    name: 'Aisance Group',
+    url: 'https://aisancegroup.com',
+  },
+  description: 'Discreet personal concierge errands, secure document dispatch, and time-critical deliveries handled by vetted, professional dispatch personnel.',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Nigeria',
+  },
+};
+
+const stats = [
+  { value: '100%', label: 'Vetted Couriers', sub: 'Guarantor-backed personnel' },
+  { value: '< 90m', label: 'Express Dispatch', sub: 'Urgent point-to-point transit' },
+  { value: 'Zero', label: 'Loss Record', sub: 'Tamper-evident verification' },
+  { value: '24/7', label: 'Escalation Desk', sub: 'Central operations oversight' },
+];
+
+const capabilities = [
+  {
+    num: '01',
+    icon: 'local_shipping',
+    title: 'Executive Concierge Errands',
+    desc: 'Confidential personal errands for estate owners and corporate executives—from collecting vital certificates to running priority retail procurements.',
+    items: ['Strict Discretion & NDA', 'Direct Communication Channel', 'Receipt & Payment Reconciliation'],
+  },
+  {
+    num: '02',
+    icon: 'mail',
+    title: 'Corporate Courier & Document Transit',
+    desc: 'Secured chain-of-custody delivery for legal briefs, notarized contracts, architectural blueprints, and financial instruments.',
+    items: ['Tamper-Proof Security Seals', 'Biometric Sign-off Logs', 'Inter-Branch Daily Shuttles'],
+  },
+  {
+    num: '03',
+    icon: 'diamond',
+    title: 'High-Value & Fragile Item Escort',
+    desc: 'Careful vehicle transport for bespoke celebratory attire, fragile apothecary shipments, ceremonial hampers, and delicate presentation pieces.',
+    items: ['Climate-Controlled Van Options', 'Padded Protective Packaging', 'White-Glove Recipient Handover'],
+  },
+  {
+    num: '04',
+    icon: 'sync_alt',
+    title: 'Dedicated Corporate Fleet Retainers',
+    desc: 'Contract-based dedicated dispatch riders and vehicles assigned exclusively to your business entity for frictionless everyday operations.',
+    items: ['Dedicated Assigned Rider', 'Predictable Monthly Invoicing', 'Zero Fleet Maintenance Burden'],
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription} schema={serviceSchema}>
+  <!-- Sub-Header & Breadcrumbs -->
+  <section class="w-full bg-[#F6F3F2] py-4 border-b border-[#DDE7E1]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4">
+      <Breadcrumbs items={breadcrumbs} />
+      <div class="flex items-center gap-2 text-xs font-sans text-[#C9A24A] font-bold uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-[#C9A24A]"></span>
+        <span>Division 05 of 05</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="w-full py-16 lg:py-24 bg-[#FCF9F8]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-lg bg-[#EAE7E7] text-[#12372A] font-sans text-xs uppercase tracking-widest font-semibold border border-[#DDE7E1]">
+          <span class="material-symbols-outlined text-[16px] text-[#C9A24A]">local_shipping</span>
+          <span>05 — CORE DIVISION</span>
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#12372A] tracking-tight leading-tight">
+          Errand &amp; Logistics
+        </h1>
+
+        <p class="font-serif text-xl sm:text-2xl text-[#C9A24A] font-normal italic -mt-2">
+          "Prompt and reliable delivery solutions."
+        </p>
+
+        <p class="font-sans text-base sm:text-lg text-[#414844] max-w-2xl leading-relaxed">
+          Discreet personal concierge errands, secure document dispatch, and time-critical deliveries handled by vetted, professional dispatch personnel.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <Button href="/request-service?service=Errand%20%26%20Logistics" variant="primary" size="lg">
+            Book an Errand / Dispatch
+          </Button>
+          <Button href="tel:08141937193" variant="secondary" size="lg">
+            <span class="material-symbols-outlined mr-2 text-[20px] text-[#C9A24A]">call</span>
+            <span>Call Logistics Desk</span>
+          </Button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 flex flex-col gap-3">
+        <div class="relative group rounded-2xl overflow-hidden shadow-2xl bg-[#EAE7E7] aspect-[4/3] border border-[#DDE7E1]">
+          <img
+            src="/images/logistics.png"
+            alt="Corporate courier and confidential dispatch by Aisance Group"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            width="600"
+            height="450"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#12372A]/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <span class="font-sans text-xs tracking-widest uppercase text-[#FFDF9E] font-bold block mb-1">Central Dispatch Desk</span>
+            <p class="font-serif text-xl font-semibold">Chain-of-Custody &amp; Express Delivery</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Banner -->
+  <section class="w-full bg-[#12372A] text-[#FCF9F8] py-12 border-y border-[#C9A24A]/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((s) => (
+        <div class="flex flex-col gap-1">
+          <span class="font-serif text-3xl sm:text-4xl text-[#FFDF9E] font-bold">{s.value}</span>
+          <span class="font-sans text-xs uppercase tracking-wider text-[#FFFFFF] font-semibold">{s.label}</span>
+          <span class="font-sans text-xs text-[#A8CFBD] leading-tight mt-0.5">{s.sub}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Capabilities Cards -->
+  <section class="w-full py-20 bg-[#F6F3F2]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Courier Operations</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2">Logistical Dispatch Capabilities</h2>
+        </div>
+        <p class="font-sans text-sm text-[#414844] max-w-md leading-relaxed">
+          Engineered for confidentiality and speed. Entrust critical parcels and tasks to vetted professionals who operate with discretion.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {capabilities.map((c) => (
+          <div class="flex flex-col bg-[#FFFFFF] rounded-2xl overflow-hidden p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-[#DDE7E1]">
+            <div class="w-14 h-14 rounded-xl bg-[#F0EDED] flex items-center justify-center text-[#12372A] group-hover:bg-[#12372A] group-hover:text-[#FFFFFF] transition-colors mb-6 shadow-sm">
+              <span class="material-symbols-outlined text-[28px]">{c.icon}</span>
+            </div>
+            <span class="font-sans text-xs text-[#C9A24A] font-bold uppercase tracking-widest mb-1">{c.num}</span>
+            <h3 class="font-serif text-2xl text-[#12372A] mb-3 font-semibold">{c.title}</h3>
+            <p class="font-sans text-sm text-[#414844] mb-6 flex-grow leading-relaxed">
+              {c.desc}
+            </p>
+            <div class="pt-4 mt-auto bg-[#F6F3F2] -mx-8 -mb-8 p-6 rounded-b-2xl border-t border-[#DDE7E1]/50">
+              <ul class="font-sans text-xs text-[#12372A] space-y-1.5 font-medium">
+                {c.items.map((item) => (
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#C9A24A]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="w-full bg-[#FCF9F8] py-20 border-t border-[#DDE7E1] text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-serif text-3xl sm:text-4xl text-[#12372A] font-normal">
+        Deploy a Dedicated Courier or Errand Task
+      </h2>
+      <p class="font-sans text-base text-[#414844] mt-4 leading-relaxed">
+        Our central logistics desk coordinates dispatches with prompt, verified chain-of-custody.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <Button href="/request-service?service=Errand%20%26%20Logistics" variant="primary" size="lg">
+          Book Errand Service
+        </Button>
+        <Button href="tel:08141937193" variant="secondary" size="lg">
+          Call 08141937193
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

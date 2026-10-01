@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Button from '../../components/Button.astro';
+
+const seoTitle = 'Dry Cleaning Services | Aisance Group';
+const seoDescription = 'Master garment care, bespoke pressing, traditional attire restoration, and valet pickup across Nigeria by Aisance Group.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Dry Cleaning Services' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Dry Cleaning Services',
+  provider: {
+    '@type': 'Organization',
+    name: 'Aisance Group',
+    url: 'https://aisancegroup.com',
+  },
+  description: 'Master garment care, fabric restoration, bespoke pressing, and seasonal wardrobe upkeep handling silk, wool, and ceremonial wear.',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Nigeria',
+  },
+};
+
+const stats = [
+  { value: '100%', label: 'Solvent Purity', sub: 'Eco-safe fabric-gentle fluids' },
+  { value: '48hr', label: 'Atelier Turnaround', sub: 'Standard guaranteed turnaround' },
+  { value: 'Custom', label: 'Timber Hangers', sub: 'Preserves structural lapels & collars' },
+  { value: 'Zero', label: 'Fiber Compression', sub: 'Steam-tensioned dimensional pressing' },
+];
+
+const capabilities = [
+  {
+    num: '01',
+    icon: 'dry_cleaning',
+    title: 'Couture & Tailored Suiting',
+    desc: 'Precision hand-pressing, shoulder-sculpting, and chemical-free solvent refreshing for bespoke woolen suits, silk neckwear, and formal dinner jackets.',
+    items: ['Bespoke Collar Rolling', 'Breathable Garment Packaging', 'Horn Button Shielding'],
+  },
+  {
+    num: '02',
+    icon: 'styler',
+    title: 'Traditional Attire & Ceremonial Robes',
+    desc: 'Specialized preservation of elaborate multi-piece Agbada, hand-woven Aso-Oke, French lace, and heavy velvet with metallic embroidery.',
+    items: ['Embroidery Thread Stabilization', 'Color-Fast Extraction', 'Heirloom Box Storage Options'],
+  },
+  {
+    num: '03',
+    icon: 'auto_fix_high',
+    title: 'Delicate Stain Mitigation & Revival',
+    desc: 'Targeted enzyme baths and ultrasonic spotting addressing complex tannins, oils, and celebratory stains without weakening fragile textile fibers.',
+    items: ['Pre-Spotting Fiber Diagnosis', 'Non-Abrasive Stain Dissolution', 'Luster Restoration Bath'],
+  },
+  {
+    num: '04',
+    icon: 'local_shipping',
+    title: 'Scheduled Valet Doorstep Concierge',
+    desc: 'Discreet door-to-door garment collection and wardrobe delivery for busy executives and gated estates. Garments returned pressed, hung, and sealed.',
+    items: ['Pre-Arranged Time Windows', 'Digital Barcode Bag Tracking', 'Direct Wardrobe Handoff'],
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription} schema={serviceSchema}>
+  <!-- Sub-Header & Breadcrumbs -->
+  <section class="w-full bg-[#F6F3F2] py-4 border-b border-[#DDE7E1]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4">
+      <Breadcrumbs items={breadcrumbs} />
+      <div class="flex items-center gap-2 text-xs font-sans text-[#C9A24A] font-bold uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-[#C9A24A]"></span>
+        <span>Division 03 of 05</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="w-full py-16 lg:py-24 bg-[#FCF9F8]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-lg bg-[#EAE7E7] text-[#12372A] font-sans text-xs uppercase tracking-widest font-semibold border border-[#DDE7E1]">
+          <span class="material-symbols-outlined text-[16px] text-[#C9A24A]">checkroom</span>
+          <span>03 — Core Division</span>
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#12372A] tracking-tight leading-tight">
+          Dry Cleaning Services
+        </h1>
+
+        <p class="font-serif text-xl sm:text-2xl text-[#C9A24A] font-normal italic -mt-2">
+          "Professional care for your garments."
+        </p>
+
+        <p class="font-sans text-base sm:text-lg text-[#414844] max-w-2xl leading-relaxed">
+          Bespoke fabric care, traditional attire restoration, and artisanal pressing for formal wear, ceremonial garments, and delicate textiles. Handled with sovereign care and peerless precision.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <Button href="/request-service?service=Dry%20Cleaning%20Services" variant="primary" size="lg">
+            Schedule Garment Pickup
+          </Button>
+          <Button href="tel:08141937193" variant="secondary" size="lg">
+            <span class="material-symbols-outlined mr-2 text-[20px] text-[#C9A24A]">call</span>
+            <span>Contact Wardrobe Desk</span>
+          </Button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 flex flex-col gap-3">
+        <div class="relative group rounded-2xl overflow-hidden shadow-2xl bg-[#EAE7E7] aspect-[4/5] border border-[#DDE7E1]">
+          <img
+            src="/images/dry-cleaning.png"
+            alt="Artisanal garment care and dry cleaning by Aisance Group"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            width="600"
+            height="750"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#12372A]/80 via-transparent to-transparent opacity-85"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 p-5 rounded-xl bg-[#FCF9F8]/95 backdrop-blur-md shadow-lg border border-[#DDE7E1]">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="material-symbols-outlined text-[#C9A24A] text-[18px]">verified</span>
+              <span class="font-sans text-xs text-[#12372A] uppercase font-bold tracking-widest">Master Wardrobe Care</span>
+            </div>
+            <p class="font-serif text-xl text-[#12372A] leading-snug font-semibold">Heirloom &amp; Couture Preservation</p>
+            <p class="font-sans text-xs text-[#414844] mt-0.5">Discreet valet collection across Lagos &amp; Abuja</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Banner -->
+  <section class="w-full bg-[#12372A] text-[#FCF9F8] py-12 border-y border-[#C9A24A]/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((s) => (
+        <div class="flex flex-col gap-1">
+          <span class="font-serif text-3xl sm:text-4xl text-[#FFDF9E] font-bold">{s.value}</span>
+          <span class="font-sans text-xs uppercase tracking-wider text-[#FFFFFF] font-semibold">{s.label}</span>
+          <span class="font-sans text-xs text-[#A8CFBD] leading-tight mt-0.5">{s.sub}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Capabilities Cards -->
+  <section class="w-full py-20 bg-[#F6F3F2]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Fabric Standards</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2">Specialized Wardrobe Services</h2>
+        </div>
+        <p class="font-sans text-sm text-[#414844] max-w-md leading-relaxed">
+          From ceremonial Agbada robes to high-count Egyptian cotton business shirts, our fabric masters ensure immaculate hand-finished results.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {capabilities.map((c) => (
+          <div class="flex flex-col bg-[#FFFFFF] rounded-2xl overflow-hidden p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-[#DDE7E1]">
+            <div class="w-14 h-14 rounded-xl bg-[#F0EDED] flex items-center justify-center text-[#12372A] group-hover:bg-[#12372A] group-hover:text-[#FFFFFF] transition-colors mb-6 shadow-sm">
+              <span class="material-symbols-outlined text-[28px]">{c.icon}</span>
+            </div>
+            <span class="font-sans text-xs text-[#C9A24A] font-bold uppercase tracking-widest mb-1">{c.num}</span>
+            <h3 class="font-serif text-2xl text-[#12372A] mb-3 font-semibold">{c.title}</h3>
+            <p class="font-sans text-sm text-[#414844] mb-6 flex-grow leading-relaxed">
+              {c.desc}
+            </p>
+            <div class="pt-4 mt-auto bg-[#F6F3F2] -mx-8 -mb-8 p-6 rounded-b-2xl border-t border-[#DDE7E1]/50">
+              <ul class="font-sans text-xs text-[#12372A] space-y-1.5 font-medium">
+                {c.items.map((item) => (
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#C9A24A]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="w-full bg-[#FCF9F8] py-20 border-t border-[#DDE7E1] text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-serif text-3xl sm:text-4xl text-[#12372A] font-normal">
+        Arrange Valet Pickup for Your Wardrobe
+      </h2>
+      <p class="font-sans text-base text-[#414844] mt-4 leading-relaxed">
+        Schedule doorstep pickup from your private residence or executive office suite.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <Button href="/request-service?service=Dry%20Cleaning%20Services" variant="primary" size="lg">
+          Book Garment Pickup
+        </Button>
+        <Button href="tel:08141937193" variant="secondary" size="lg">
+          Call 08141937193
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

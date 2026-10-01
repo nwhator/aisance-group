@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow confirmation/utility screens from indexing
+Disallow: /request-success
+
+Sitemap: https://aisancegroup.com/sitemap-index.xml

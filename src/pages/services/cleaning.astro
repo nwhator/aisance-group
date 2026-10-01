@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Button from '../../components/Button.astro';
+
+const seoTitle = 'Home & Commercial Cleaning Services | Aisance Group';
+const seoDescription = 'Precision residential housekeeping, commercial office cleaning, and post-construction sanitization across Nigeria by vetted professionals at Aisance Group.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Cleaning Services' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Home & Commercial Cleaning',
+  provider: {
+    '@type': 'Organization',
+    name: 'Aisance Group',
+    url: 'https://aisancegroup.com',
+  },
+  description: 'Precision sanitation, post-construction restorative cleaning, and executive housekeeping conducted by thoroughly vetted, discreet professionals across Nigeria.',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Nigeria',
+  },
+};
+
+const capabilities = [
+  {
+    num: '01',
+    icon: 'home',
+    title: 'Executive Residential Housekeeping',
+    desc: 'Bespoke ongoing cleaning schedules for luxury villas and private residences. Complete bathroom descaling, high-dusting, and delicate marble floor conditioning.',
+    items: ['Tailored Weekly/Bi-weekly Schedules', 'Discreet Bonded Housekeepers', 'Non-Toxic Hypoallergenic Cleaners'],
+  },
+  {
+    num: '02',
+    icon: 'apartment',
+    title: 'Corporate & Janitorial Maintenance',
+    desc: 'Off-hours dawn or evening cleaning for executive office floors, financial boardrooms, law chambers, and clinics requiring immaculate corporate presentation.',
+    items: ['Off-Peak Dawn Schedules', 'Secure Access Compliance', 'Waste & Confidential Document Disposal'],
+  },
+  {
+    num: '03',
+    icon: 'construction',
+    title: 'Post-Construction & Handover Cleaning',
+    desc: 'Intensive restorative cleaning after building or remodeling. Removal of paint overspray, grout haze, cement residue, and industrial dust filtration.',
+    items: ['HEPA Air Scrubbing', 'Tile & Terrazzo Machine Polishing', 'Full Handover Readiness'],
+  },
+  {
+    num: '04',
+    icon: 'door_front',
+    title: 'Move-In / Move-Out Turnover Care',
+    desc: 'Complete reset sanitization between estate occupancies. Deep degreasing of ovens, air vent sterilizing, and wardrobe interior treatments.',
+    items: ['Appliance Interior Detailing', 'Steam Sanitization of Fixtures', 'Expedited Same-Day Turnaround'],
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription} schema={serviceSchema}>
+  <!-- Sub-Header & Breadcrumbs -->
+  <section class="w-full bg-[#F6F3F2] py-4 border-b border-[#DDE7E1]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4">
+      <Breadcrumbs items={breadcrumbs} />
+      <div class="flex items-center gap-2 text-xs font-sans text-[#C9A24A] font-bold uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-[#C9A24A]"></span>
+        <span>Division 02 of 05</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="w-full py-16 lg:py-24 bg-[#FCF9F8]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-lg bg-[#EAE7E7] text-[#12372A] font-sans text-xs uppercase tracking-widest font-semibold border border-[#DDE7E1]">
+          <span class="material-symbols-outlined text-[16px] text-[#C9A24A]">cleaning_services</span>
+          <span>02 — Core Division</span>
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#12372A] tracking-tight leading-tight">
+          Home &amp; Commercial Cleaning
+        </h1>
+
+        <p class="font-serif text-xl sm:text-2xl text-[#C9A24A] font-normal italic -mt-2">
+          "Professional cleaning for spaces that matter."
+        </p>
+
+        <p class="font-sans text-base sm:text-lg text-[#414844] max-w-2xl leading-relaxed">
+          Precision sanitation, post-construction restorative cleaning, and executive housekeeping conducted by thoroughly vetted, discreet professionals across Nigeria’s premier residences and institutions.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <Button href="/request-service?service=Home%20%26%20Commercial%20Cleaning" variant="primary" size="lg">
+            Schedule a Cleaning Assessment
+          </Button>
+          <Button href="tel:08141937193" variant="secondary" size="lg">
+            <span class="material-symbols-outlined mr-2 text-[20px] text-[#C9A24A]">call</span>
+            <span>Call Cleaning Concierge</span>
+          </Button>
+        </div>
+
+        <!-- Micro Spec Bar -->
+        <div class="grid grid-cols-3 gap-6 pt-8 w-full border-t border-[#DDE7E1]">
+          <div>
+            <span class="block font-serif text-2xl sm:text-3xl text-[#12372A] font-bold">50-Pt</span>
+            <span class="font-sans text-xs text-[#414844] uppercase tracking-wider font-medium">Standard Checklist</span>
+          </div>
+          <div>
+            <span class="block font-serif text-2xl sm:text-3xl text-[#12372A] font-bold">100%</span>
+            <span class="font-sans text-xs text-[#414844] uppercase tracking-wider font-medium">Vetted Personnel</span>
+          </div>
+          <div>
+            <span class="block font-serif text-2xl sm:text-3xl text-[#12372A] font-bold">HEPA</span>
+            <span class="font-sans text-xs text-[#414844] uppercase tracking-wider font-medium">Hospital-Grade Filter</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 flex flex-col gap-3">
+        <div class="relative group rounded-2xl overflow-hidden shadow-2xl bg-[#EAE7E7] aspect-[4/3] border border-[#DDE7E1]">
+          <img
+            src="/images/cleaning.png"
+            alt="Pristine residential interior cleaned by Aisance Group"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            width="600"
+            height="450"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#12372A]/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <span class="font-sans text-xs tracking-widest uppercase text-[#FFDF9E] font-bold block mb-1">Sanitation Archive</span>
+            <p class="font-serif text-xl font-semibold">Bespoke Residential &amp; Corporate Upkeep</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities Cards -->
+  <section class="w-full py-20 bg-[#F6F3F2] border-y border-[#DDE7E1]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Sanitation Portfolio</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2">Comprehensive Cleaning Solutions</h2>
+        </div>
+        <p class="font-sans text-sm text-[#414844] max-w-md leading-relaxed">
+          From recurring private estate housekeeping to high-traffic commercial head offices, our protocols ensure pristine hygienic presentation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {capabilities.map((c) => (
+          <div class="flex flex-col bg-[#FFFFFF] rounded-2xl overflow-hidden p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-[#DDE7E1]">
+            <div class="w-14 h-14 rounded-xl bg-[#F0EDED] flex items-center justify-center text-[#12372A] group-hover:bg-[#12372A] group-hover:text-[#FFFFFF] transition-colors mb-6 shadow-sm">
+              <span class="material-symbols-outlined text-[28px]">{c.icon}</span>
+            </div>
+            <span class="font-sans text-xs text-[#C9A24A] font-bold uppercase tracking-widest mb-1">{c.num}</span>
+            <h3 class="font-serif text-2xl text-[#12372A] mb-3 font-semibold">{c.title}</h3>
+            <p class="font-sans text-sm text-[#414844] mb-6 flex-grow leading-relaxed">
+              {c.desc}
+            </p>
+            <div class="pt-4 mt-auto bg-[#F6F3F2] -mx-8 -mb-8 p-6 rounded-b-2xl border-t border-[#DDE7E1]/50">
+              <ul class="font-sans text-xs text-[#12372A] space-y-1.5 font-medium">
+                {c.items.map((item) => (
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#C9A24A]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="w-full bg-[#FCF9F8] py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-serif text-3xl sm:text-4xl text-[#12372A] font-normal">
+        Experience Flawless Living &amp; Workspaces
+      </h2>
+      <p class="font-sans text-base text-[#414844] mt-4 leading-relaxed">
+        Let our vetted housekeeping operatives restore calm, hygiene, and order to your estate or corporate facility.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <Button href="/request-service?service=Home%20%26%20Commercial%20Cleaning" variant="primary" size="lg">
+          Request Cleaning Schedule
+        </Button>
+        <Button href="tel:08141937193" variant="secondary" size="lg">
+          Call 08141937193
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

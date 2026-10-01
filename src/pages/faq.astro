@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQ from '../components/FAQ.astro';
+import Button from '../components/Button.astro';
+
+const seoTitle = 'Frequently Asked Questions | Aisance Group';
+const seoDescription = 'Answers to common questions about Aisance Group services, booking protocols, guarantees, and corporate retainers in Nigeria.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'FAQ' },
+];
+
+const generalFaqs = [
+  {
+    question: 'What is Aisance Group?',
+    answer: 'Aisance Group is a premier Nigerian diversified parent company delivering high-standard everyday solutions across five specialized divisions: Toiletries Production, Home & Commercial Cleaning, Dry Cleaning Services, Food Thrift, and Errand & Logistics.',
+  },
+  {
+    question: 'How do I book or request a service?',
+    answer: 'You can submit an engagement request via our online Request a Service form, call our concierge desk directly at 08141937193, or email hello.aisancegroup@gmail.com. We confirm scope and dispatch within 30 minutes during active desk hours.',
+  },
+  {
+    question: 'Can I combine multiple services under one contract?',
+    answer: 'Yes. Our integrated multi-division retainer allows estates, residential homes, and corporate institutions to coordinate cleaning, garment pickup, pantry provisions, and errand couriers under a single point of contact and unified monthly invoicing.',
+  },
+  {
+    question: 'Are your staff vetted and background-checked?',
+    answer: 'Every operative—including cleaners, courier dispatchers, and production technicians—undergoes rigorous guarantor verification, background scrutiny, and continuous behavioral and security training.',
+  },
+  {
+    question: 'Where does Aisance Group operate?',
+    answer: 'We operate across Lagos and select metropolitan centers in Nigeria. Contact our desk to verify coverage for your specific estate or facility.',
+  },
+];
+
+const divisionFaqs = [
+  {
+    question: 'Toiletries: Are your formulations skin-safe and natural?',
+    answer: 'Yes. Our Auria Botanicals product line uses 100% skin-safe raw botanical extracts, pure unrefined shea butter, and gentle hypoallergenic cleansing bases with zero harsh sulfates or parabens.',
+  },
+  {
+    question: 'Cleaning: What cleaning supplies and equipment do you use?',
+    answer: 'Our field crews arrive fully equipped with hospital-grade disinfectants, HEPA-filtered vacuum systems, specialized microfiber cloths, and gentle pH-neutral stone conditioners tailored to your flooring.',
+  },
+  {
+    question: 'Dry Cleaning: How do you handle delicate traditional attire and embroidery?',
+    answer: 'We use gentle solvent baths, protective thread shields, and tensioned steam pressing specifically calibrated for delicate Agbada embroideries, fine silks, laces, and ceremonial velvet garments.',
+  },
+  {
+    question: 'Food Thrift: How are grains and food staples sourced?',
+    answer: 'We procure directly from verified regional farming cooperatives. All grains are stone-free, pre-sorted, and quality-inspected to guarantee purity, freshness, and wholesale savings for modern households.',
+  },
+  {
+    question: 'Logistics: Can I send confidential corporate legal documents?',
+    answer: 'Yes. Our Errand & Logistics division provides tamper-evident sealed packaging, verified biometric chain-of-custody, and direct point-to-point courier transit under strict confidentiality.',
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <section class="w-full max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-12">
+    <div class="mb-6">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+
+    <!-- Header Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-8">
+      <div class="lg:col-span-8 flex flex-col gap-4">
+        <div class="inline-flex items-center gap-2 self-start px-3 py-1 bg-[#EAE7E7] rounded-lg text-[#12372A] border border-[#DDE7E1]">
+          <span class="material-symbols-outlined text-sm text-[#C9A24A]">help</span>
+          <span class="font-sans text-xs tracking-widest uppercase font-semibold">Client Knowledge Base</span>
+        </div>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#12372A] tracking-tight font-normal">
+          Frequently Asked Questions<span class="text-[#C9A24A]">.</span>
+        </h1>
+        <p class="font-sans text-base sm:text-lg text-[#414844] max-w-2xl leading-relaxed">
+          Find clear, transparent information regarding our five core divisions, booking protocols, guarantees, and corporate retainer packages.
+        </p>
+      </div>
+
+      <div class="lg:col-span-4 flex flex-col justify-end">
+        <div class="bg-[#FFFFFF] p-5 rounded-2xl flex items-center justify-between shadow-sm border border-[#DDE7E1]">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[#C9A24A] text-2xl">support_agent</span>
+            <div class="flex flex-col">
+              <span class="font-sans text-xs uppercase text-[#414844]">Have More Questions?</span>
+              <a href="tel:08141937193" class="font-sans text-sm font-semibold text-[#12372A] hover:text-[#C9A24A]">0814 193 7193</a>
+            </div>
+          </div>
+          <a href="/contact" class="font-sans text-xs uppercase px-2.5 py-1 bg-[#12372A] text-white rounded font-medium hover:bg-[#1a4a39]">Inquire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Sections -->
+  <section class="w-full max-w-5xl mx-auto px-6 lg:px-12 pb-24">
+    <!-- General FAQs -->
+    <div class="mb-14">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-2 h-2 rounded-full bg-[#C9A24A]"></span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-[#12372A] font-semibold">General &amp; Engagement Protocols</h2>
+      </div>
+      <FAQ items={generalFaqs} includeSchema={true} />
+    </div>
+
+    <!-- Division Specific FAQs -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-2 h-2 rounded-full bg-[#C9A24A]"></span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-[#12372A] font-semibold">Specialized Division Queries</h2>
+      </div>
+      <FAQ items={divisionFaqs} includeSchema={true} />
+    </div>
+
+    <!-- Need More Assistance Card -->
+    <div class="p-8 lg:p-10 rounded-2xl bg-[#12372A] text-white text-center flex flex-col items-center border border-[#C9A24A]/40 shadow-xl">
+      <h3 class="font-serif text-2xl sm:text-3xl font-normal text-white">Still have a question?</h3>
+      <p class="font-sans text-sm sm:text-base text-[#A8CFBD] mt-2 max-w-md leading-relaxed">
+        Our concierge desk is available to assist you with custom quotes, site inspections, or corporate tenders.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-6">
+        <Button href="/contact" variant="gold" size="md">
+          Contact Concierge
+        </Button>
+        <Button href="tel:08141937193" variant="secondary" size="md" className="border-white text-white hover:bg-white/10">
+          Call 08141937193
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

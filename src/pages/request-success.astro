@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+
+const seoTitle = 'Request Submitted | Aisance Group';
+const seoDescription = 'Your service request has been received by Aisance Group central concierge.';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <section class="w-full max-w-4xl mx-auto px-6 py-20 lg:py-28 text-center flex flex-col items-center">
+    <div class="w-20 h-20 rounded-full bg-[#12372A] text-[#FFDF9E] flex items-center justify-center mb-8 shadow-xl border border-[#C9A24A]">
+      <span class="material-symbols-outlined text-4xl">check</span>
+    </div>
+
+    <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold mb-2">Central Dispatch Confirmation</span>
+    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] font-normal">
+      Your Request Has Been Received.
+    </h1>
+
+    <p class="font-sans text-base sm:text-lg text-[#414844] mt-4 max-w-xl leading-relaxed">
+      Thank you for entrusting your requirements to Aisance Group. Our senior duty coordinator is reviewing your docket and will contact you within 30 minutes during active dispatch hours.
+    </p>
+
+    <!-- Request Details Card (Loaded from query params or session) -->
+    <div id="request-summary-box" class="w-full max-w-lg bg-[#FFFFFF] rounded-2xl p-6 shadow-sm border border-[#DDE7E1] my-8 text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-[#DDE7E1]/80 mb-4">
+        <span class="font-sans text-xs uppercase tracking-wider text-[#414844] font-semibold">Docket Status</span>
+        <span class="inline-flex items-center gap-1.5 font-sans text-xs text-[#12372A] font-bold bg-[#DDE7E1]/60 px-2.5 py-0.5 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C9A24A]"></span>
+          <span>In Review</span>
+        </span>
+      </div>
+
+      <div class="flex flex-col gap-3 font-sans text-sm">
+        <div class="flex justify-between">
+          <span class="text-[#414844]">Client Name:</span>
+          <span id="summary-name" class="font-semibold text-[#12372A]">Valued Client</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-[#414844]">Service Division:</span>
+          <span id="summary-service" class="font-semibold text-[#C9A24A]">General Intake</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-[#414844]">Concierge Hotline:</span>
+          <a href="tel:08141937193" class="font-semibold text-[#12372A] hover:text-[#C9A24A]">08141937193</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <Button href="/" variant="primary" size="lg">
+        Back to Home
+      </Button>
+      <Button href="/services" variant="secondary" size="lg">
+        Explore Other Services
+      </Button>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function loadRequestSummary() {
+    const params = new URLSearchParams(window.location.search);
+    const nameParam = params.get('name');
+    const serviceParam = params.get('service');
+
+    const nameEl = document.getElementById('summary-name');
+    const serviceEl = document.getElementById('summary-service');
+
+    if (nameParam && nameEl) {
+      nameEl.textContent = nameParam;
+    }
+    if (serviceParam && serviceEl) {
+      serviceEl.textContent = serviceParam;
+    }
+
+    if (!nameParam && !serviceParam) {
+      try {
+        const stored = sessionStorage.getItem('aisance_last_request');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed.fullName && nameEl) nameEl.textContent = parsed.fullName;
+          if (parsed.serviceNeeded && serviceEl) serviceEl.textContent = parsed.serviceNeeded;
+        }
+      } catch (_) {}
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadRequestSummary);
+  } else {
+    loadRequestSummary();
+  }
+</script>

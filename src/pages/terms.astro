@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const seoTitle = 'Terms and Conditions | Aisance Group';
+const seoDescription = 'Terms and Conditions governing service engagements, orders, and retainers with Aisance Group.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Terms & Conditions' },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <section class="w-full max-w-4xl mx-auto px-6 lg:px-12 py-12 lg:py-20">
+    <div class="mb-6">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+
+    <div class="mb-10 pb-6 border-b border-[#DDE7E1]">
+      <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Client Agreement</span>
+      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2 font-normal">Terms &amp; Conditions</h1>
+      <p class="font-sans text-sm text-[#414844] mt-2">Last Updated: October 2026</p>
+    </div>
+
+    <div class="prose font-sans text-sm sm:text-base text-[#414844] space-y-6 leading-relaxed">
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">1. Scope of Engagement</h2>
+        <p>
+          These Terms and Conditions govern all service bookings, product orders, and retainer contracts entered into with Aisance Group across our operating divisions: Toiletries Production, Home &amp; Commercial Cleaning, Dry Cleaning Services, Food Thrift, and Errand &amp; Logistics.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">2. Service Intake &amp; Quotations</h2>
+        <p>
+          Submitting an online request does not constitute an immediate financial commitment. All requests are subject to intake validation and confirmation by our central dispatch desk. Clients receive a verified scope of work and formal quotation prior to deployment or fulfillment.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">3. Standards of Service &amp; Safety</h2>
+        <p>
+          All operations are conducted under standardized protocols by vetted, guarantor-backed personnel. We enforce strict safety guidelines, hospital-grade sanitization standards, and non-disclosure obligations across all assigned staff.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">4. Cancellations &amp; Rescheduling</h2>
+        <p>
+          Clients may reschedule or modify scheduled service appointments by notifying our central concierge at least 12 hours prior to the designated arrival window to ensure seamless personnel reallocation.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-serif text-2xl text-[#12372A] font-semibold">5. Contact &amp; Governance</h2>
+        <p>
+          For contractual inquiries, corporate retainers, or service tenders, please contact our management office:
+        </p>
+        <div class="p-4 bg-[#F6F3F2] rounded-xl border border-[#DDE7E1] text-[#12372A] font-sans text-sm">
+          <p><strong>Aisance Group Executive Desk</strong></p>
+          <p>Email: <a href="mailto:hello.aisancegroup@gmail.com" class="text-[#C9A24A] hover:underline">hello.aisancegroup@gmail.com</a></p>
+          <p>Phone: <a href="tel:08141937193" class="text-[#C9A24A] hover:underline">08141937193</a></p>
+        </div>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ServiceRequestForm from '../components/ServiceRequestForm.astro';
+
+const seoTitle = 'Request a Service | Aisance Group';
+const seoDescription = 'Book any of Aisance Group’s five core service divisions. Fast dispatch, verified quotations, and bonded personnel across Nigeria.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Request a Service' },
+];
+
+const selectedService = Astro.url.searchParams.get('service') || '';
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <!-- Breadcrumbs & Page Intro Section -->
+  <section class="w-full max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-12">
+    <div class="mb-6">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+
+    <!-- Header Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-8">
+      <div class="lg:col-span-8 flex flex-col gap-4">
+        <div class="inline-flex items-center gap-2 self-start px-3 py-1 bg-[#EAE7E7] rounded-lg text-[#12372A] border border-[#DDE7E1]">
+          <span class="material-symbols-outlined text-sm text-[#C9A24A]">verified</span>
+          <span class="font-sans text-xs tracking-widest uppercase font-semibold">Central Dispatch &amp; Service Concierge</span>
+        </div>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#12372A] tracking-tight font-normal">
+          Request a Service<span class="text-[#C9A24A]">.</span>
+        </h1>
+        <p class="font-sans text-base sm:text-lg text-[#414844] max-w-2xl leading-relaxed">
+          Experience the effortless standard of Aisance Group. Select your operational division, outline your exact requirements, and our central dispatch concierge will coordinate execution with institutional precision.
+        </p>
+      </div>
+
+      <!-- Live Operations Status Metric -->
+      <div class="lg:col-span-4 flex flex-col justify-end">
+        <div class="bg-[#FFFFFF] p-5 rounded-2xl flex items-center justify-between shadow-sm border border-[#DDE7E1]">
+          <div class="flex items-center gap-3">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C9A24A] opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-[#C9A24A]"></span>
+            </span>
+            <div class="flex flex-col">
+              <span class="font-sans text-xs uppercase tracking-wider text-[#414844]">Lagos Central Hub</span>
+              <span class="font-sans text-sm font-semibold text-[#12372A]">Dispatch Desk Active</span>
+            </div>
+          </div>
+          <span class="font-sans text-[11px] uppercase px-2.5 py-1 bg-[#12372A] text-white rounded font-medium">Standard Hours</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assurance Metrics Strip -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+      <div class="bg-[#FFFFFF] p-5 rounded-2xl shadow-sm flex items-start gap-4 border border-[#DDE7E1]">
+        <div class="p-2.5 rounded-xl bg-[#F0EDED] text-[#C9A24A] flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">schedule</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl text-[#12372A] leading-tight font-bold">&lt; 30 Mins</span>
+          <span class="font-sans text-xs text-[#414844] mt-1">Average verified response time during active business windows</span>
+        </div>
+      </div>
+
+      <div class="bg-[#FFFFFF] p-5 rounded-2xl shadow-sm flex items-start gap-4 border border-[#DDE7E1]">
+        <div class="p-2.5 rounded-xl bg-[#F0EDED] text-[#C9A24A] flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">verified_user</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl text-[#12372A] leading-tight font-bold">100% Vetted</span>
+          <span class="font-sans text-xs text-[#414844] mt-1">Background-checked, bonded, and certified field operators</span>
+        </div>
+      </div>
+
+      <div class="bg-[#FFFFFF] p-5 rounded-2xl shadow-sm flex items-start gap-4 border border-[#DDE7E1]">
+        <div class="p-2.5 rounded-xl bg-[#F0EDED] text-[#C9A24A] flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">shield</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl text-[#12372A] leading-tight font-bold">Strict NDA</span>
+          <span class="font-sans text-xs text-[#414844] mt-1">Absolute protocol-level discretion for estates, VIPs &amp; corporates</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Booking Dual-Column Layout -->
+  <section class="w-full max-w-7xl mx-auto px-6 lg:px-12 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <!-- Left Column: Primary Comprehensive Intake Form -->
+      <div class="lg:col-span-7">
+        <ServiceRequestForm initialService={selectedService} />
+      </div>
+
+      <!-- Right Column: Advisory, Hotline & Process Overview -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+        <!-- Concierge Direct Hotline Card -->
+        <div class="bg-[#12372A] text-[#FCF9F8] p-8 rounded-2xl shadow-lg relative overflow-hidden flex flex-col gap-5 border border-[#C9A24A]/40">
+          <div class="flex items-center justify-between">
+            <span class="font-sans text-xs uppercase tracking-widest text-[#FFDF9E] font-bold">Direct Liaison Desk</span>
+            <span class="material-symbols-outlined text-[#FFDF9E] text-2xl">support_agent</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl text-white font-normal">Prefer Immediate Telephone Booking?</h3>
+            <p class="font-sans text-sm text-[#A8CFBD] mt-2 leading-relaxed">
+              For urgent same-day dispatches, commercial tenders, or VIP estate packages, bypass the intake queue and speak directly with our Senior Duty Dispatcher.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-3 pt-2">
+            <a
+              href="tel:08141937193"
+              class="bg-[#1a4a39] hover:bg-[#205b46] text-white px-5 py-3.5 rounded-xl flex items-center justify-between transition-colors shadow-sm border border-[#C9A24A]/30"
+            >
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#FFDF9E]">call</span>
+                <span class="font-sans text-sm tracking-wider font-bold">0814 193 7193</span>
+              </div>
+              <span class="font-sans text-xs uppercase text-[#FFDF9E] tracking-widest font-semibold">Connect Now</span>
+            </a>
+
+            <a
+              href="mailto:hello.aisancegroup@gmail.com"
+              class="bg-[#1a4a39]/60 hover:bg-[#1a4a39] text-[#A8CFBD] hover:text-white px-5 py-3 rounded-xl flex items-center gap-3 transition-colors text-xs border border-[#C9A24A]/20"
+            >
+              <span class="material-symbols-outlined text-[#FFDF9E] text-base">mail</span>
+              <span class="truncate">hello.aisancegroup@gmail.com</span>
+            </a>
+          </div>
+
+          <div class="pt-4 bg-[#0e2c21] -mx-8 -mb-8 p-6 flex flex-col gap-1 border-t border-[#C9A24A]/20">
+            <span class="font-sans text-xs uppercase tracking-widest text-[#FFDF9E] font-semibold">Operating Hours</span>
+            <span class="font-sans text-xs text-[#A8CFBD]">Monday – Saturday: 7:30 AM – 7:30 PM WAT</span>
+            <span class="font-sans text-xs text-[#A8CFBD]/80">Sunday: On-Call Urgent Logistics Only</span>
+          </div>
+        </div>
+
+        <!-- 3-Step Execution Timeline Card -->
+        <div class="bg-[#FFFFFF] p-8 rounded-2xl shadow-sm border border-[#DDE7E1] flex flex-col gap-6">
+          <div class="flex items-center justify-between">
+            <h3 class="font-serif text-2xl text-[#12372A] font-semibold">What Happens Next?</h3>
+            <span class="font-sans text-xs font-bold uppercase text-[#C9A24A]">3-Phase Fulfillment</span>
+          </div>
+
+          <div class="flex flex-col gap-6 relative">
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center">
+                <span class="h-8 w-8 rounded-full bg-[#12372A] text-white font-sans text-xs flex items-center justify-center font-bold">1</span>
+                <span class="w-0.5 h-12 bg-[#DDE7E1] mt-1"></span>
+              </div>
+              <div class="flex flex-col pt-0.5">
+                <h4 class="font-sans text-xs text-[#12372A] uppercase tracking-wide font-bold">Intake &amp; Scope Verification</h4>
+                <p class="font-sans text-xs text-[#414844] mt-1 leading-relaxed">
+                  Our central desk reviews your physical requirements, verifies logistics accessibility, and contacts you within 30 minutes.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center">
+                <span class="h-8 w-8 rounded-full bg-[#EAE7E7] text-[#12372A] font-sans text-xs flex items-center justify-center font-bold">2</span>
+                <span class="w-0.5 h-12 bg-[#DDE7E1] mt-1"></span>
+              </div>
+              <div class="flex flex-col pt-0.5">
+                <h4 class="font-sans text-xs text-[#12372A] uppercase tracking-wide font-bold">Allocation &amp; Itemized Quotation</h4>
+                <p class="font-sans text-xs text-[#414844] mt-1 leading-relaxed">
+                  You receive an unambiguous schedule and assigned personnel dossier (cleaner team lead, courier agent, or transport manifest).
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex flex-col items-center">
+                <span class="h-8 w-8 rounded-full bg-[#EAE7E7] text-[#12372A] font-sans text-xs flex items-center justify-center font-bold">3</span>
+              </div>
+              <div class="flex flex-col pt-0.5">
+                <h4 class="font-sans text-xs text-[#12372A] uppercase tracking-wide font-bold">Sovereign Delivery &amp; Sign-off</h4>
+                <p class="font-sans text-xs text-[#414844] mt-1 leading-relaxed">
+                  Prompt arrival with strict adherence to security protocols. Operations conclude with digital quality inspection and formalized handover.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

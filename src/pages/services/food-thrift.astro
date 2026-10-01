@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Button from '../../components/Button.astro';
+
+const seoTitle = 'Food Thrift | Aisance Group';
+const seoDescription = 'Direct farm-to-table wholesale grain bundles, pantry staples, and curated household food provisions by Aisance Group.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Food Thrift' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Food Thrift',
+  provider: {
+    '@type': 'Organization',
+    name: 'Aisance Group',
+    url: 'https://aisancegroup.com',
+  },
+  description: 'Convenient access to premium everyday food supplies, wholesale grain curation, and curated pantry baskets tailored for modern households.',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Nigeria',
+  },
+};
+
+const stats = [
+  { value: 'Direct', label: 'Farm Procurement', sub: 'Regional farming cooperative partners' },
+  { value: '100%', label: 'Stone-Free Grains', sub: 'Machine-destoned & sorted produce' },
+  { value: 'Weekly', label: 'Pantry Schedules', sub: 'Flexible scheduled deliveries' },
+  { value: 'Zero', label: 'Middleman Markups', sub: 'Direct farm-gate wholesale savings' },
+];
+
+const capabilities = [
+  {
+    num: '01',
+    icon: 'inventory_2',
+    title: 'Wholesale Grain Allotments',
+    desc: 'Machine-destoned clean white & yellow garri, premium long-grain parboiled rice, and sorted sweet honey beans (Oloyin) packaged in standard durable sacks.',
+    items: ['Stone-Free Verified Sorting', 'Moisture-Controlled Storage', 'Standard 25kg & 50kg Bundles'],
+  },
+  {
+    num: '02',
+    icon: 'shopping_basket',
+    title: 'Curated Household Pantry Baskets',
+    desc: 'All-in-one pantry refills including pure unadulterated cold-pressed palm oil, vegetable cooking oil, local spices, tubers, and everyday kitchen essentials.',
+    items: ['Bespoke Basket Sizing', 'Fresh Batch Sourcing', 'Direct Kitchen Delivery'],
+  },
+  {
+    num: '03',
+    icon: 'groups',
+    title: 'Estate & Community Bulk Sharing',
+    desc: 'Cooperative procurement programs designed for residential estates, clubs, and corporate associations to unlock farm-gate pricing through aggregated demand.',
+    items: ['Coordinated Delivery Slots', 'Itemized Distribution Tags', 'Significant Cost Efficiency'],
+  },
+  {
+    num: '04',
+    icon: 'corporate_fare',
+    title: 'Corporate Staff Pantry & Hampers',
+    desc: 'Structured employee welfare food baskets, festive hampers, and institutional canteen provision retainers delivered seamlessly to workplace locations.',
+    items: ['Corporate Volume Retainers', 'Branded Presentation Hampers', 'Scheduled Delivery Cadence'],
+  },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription} schema={serviceSchema}>
+  <!-- Sub-Header & Breadcrumbs -->
+  <section class="w-full bg-[#F6F3F2] py-4 border-b border-[#DDE7E1]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4">
+      <Breadcrumbs items={breadcrumbs} />
+      <div class="flex items-center gap-2 text-xs font-sans text-[#C9A24A] font-bold uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-[#C9A24A]"></span>
+        <span>Division 04 of 05</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="w-full py-16 lg:py-24 bg-[#FCF9F8]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-lg bg-[#EAE7E7] text-[#12372A] font-sans text-xs uppercase tracking-widest font-semibold border border-[#DDE7E1]">
+          <span class="material-symbols-outlined text-[16px] text-[#C9A24A]">local_dining</span>
+          <span>04 — Core Division</span>
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#12372A] tracking-tight leading-tight">
+          Food Thrift
+        </h1>
+
+        <p class="font-serif text-xl sm:text-2xl text-[#C9A24A] font-normal italic -mt-2">
+          "Convenient access to everyday food supplies."
+        </p>
+
+        <p class="font-sans text-base sm:text-lg text-[#414844] max-w-2xl leading-relaxed">
+          Direct wholesale farm-to-table grain bundles, pantry staples, and curated food provisions delivering substantial household savings across Nigerian estates and corporate enterprises.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <Button href="/request-service?service=Food%20Thrift" variant="primary" size="lg">
+            Reserve Pantry Bundle
+          </Button>
+          <Button href="tel:08141937193" variant="secondary" size="lg">
+            <span class="material-symbols-outlined mr-2 text-[20px] text-[#C9A24A]">call</span>
+            <span>Contact Food Desk</span>
+          </Button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 flex flex-col gap-3">
+        <div class="relative group rounded-2xl overflow-hidden shadow-2xl bg-[#EAE7E7] aspect-[4/3] border border-[#DDE7E1]">
+          <img
+            src="/images/food-thrift.png"
+            alt="Direct agricultural food provisions curated by Aisance Group"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            width="600"
+            height="450"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#12372A]/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <span class="font-sans text-xs tracking-widest uppercase text-[#FFDF9E] font-bold block mb-1">Agricultural Provenance</span>
+            <p class="font-serif text-xl font-semibold">Direct Farm Provisions &amp; Curated Grains</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Banner -->
+  <section class="w-full bg-[#12372A] text-[#FCF9F8] py-12 border-y border-[#C9A24A]/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((s) => (
+        <div class="flex flex-col gap-1">
+          <span class="font-serif text-3xl sm:text-4xl text-[#FFDF9E] font-bold">{s.value}</span>
+          <span class="font-sans text-xs uppercase tracking-wider text-[#FFFFFF] font-semibold">{s.label}</span>
+          <span class="font-sans text-xs text-[#A8CFBD] leading-tight mt-0.5">{s.sub}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Capabilities Cards -->
+  <section class="w-full py-20 bg-[#F6F3F2]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Provisions Matrix</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2">Pantry Staples &amp; Wholesale Curation</h2>
+        </div>
+        <p class="font-sans text-sm text-[#414844] max-w-md leading-relaxed">
+          Eliminating open-market hassles with pre-cleaned, weighed, and quality-inspected farm allocations delivered straight to your door.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {capabilities.map((c) => (
+          <div class="flex flex-col bg-[#FFFFFF] rounded-2xl overflow-hidden p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-[#DDE7E1]">
+            <div class="w-14 h-14 rounded-xl bg-[#F0EDED] flex items-center justify-center text-[#12372A] group-hover:bg-[#12372A] group-hover:text-[#FFFFFF] transition-colors mb-6 shadow-sm">
+              <span class="material-symbols-outlined text-[28px]">{c.icon}</span>
+            </div>
+            <span class="font-sans text-xs text-[#C9A24A] font-bold uppercase tracking-widest mb-1">{c.num}</span>
+            <h3 class="font-serif text-2xl text-[#12372A] mb-3 font-semibold">{c.title}</h3>
+            <p class="font-sans text-sm text-[#414844] mb-6 flex-grow leading-relaxed">
+              {c.desc}
+            </p>
+            <div class="pt-4 mt-auto bg-[#F6F3F2] -mx-8 -mb-8 p-6 rounded-b-2xl border-t border-[#DDE7E1]/50">
+              <ul class="font-sans text-xs text-[#12372A] space-y-1.5 font-medium">
+                {c.items.map((item) => (
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#C9A24A]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="w-full bg-[#FCF9F8] py-20 border-t border-[#DDE7E1] text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-serif text-3xl sm:text-4xl text-[#12372A] font-normal">
+        Secure Your Household or Estate Allotment
+      </h2>
+      <p class="font-sans text-base text-[#414844] mt-4 leading-relaxed">
+        Join our current procurement cycle for stone-free grains, farm-direct cooking oils, and staple baskets.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+        <Button href="/request-service?service=Food%20Thrift" variant="primary" size="lg">
+          Order Food Thrift Basket
+        </Button>
+        <Button href="tel:08141937193" variant="secondary" size="lg">
+          Call 08141937193
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

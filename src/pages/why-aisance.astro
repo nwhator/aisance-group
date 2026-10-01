@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Button from '../components/Button.astro';
+
+const seoTitle = 'Why Aisance | Sovereign Standards & Service Philosophy';
+const seoDescription = 'Discover why Nigeria’s leading families and corporations choose Aisance Group for reliable, vetted, and consolidated multi-sector service delivery.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Why Aisance' },
+];
+
+const pillars = [
+  {
+    num: 'Pillar 01',
+    icon: 'schedule',
+    title: 'Reliable',
+    tag: 'Guaranteed On-Time',
+    desc: 'Unflinching consistency. Whether it is scheduled dawn office sanitization, precision fabric care for weekend ceremonies, or urgent corporate contract transit, our word is our bond. Every division operates under rigorous service-level commitments.',
+  },
+  {
+    num: 'Pillar 02',
+    icon: 'shield_person',
+    title: 'Professional',
+    tag: 'Guarantor-Vetted',
+    desc: 'Vetted, bonded, and certified personnel. Our cleaning operatives, courier dispatchers, and artisanal formulators undergo multi-stage guarantor background checks, continuous behavioral training, and formal Non-Disclosure governance.',
+  },
+  {
+    num: 'Pillar 03',
+    icon: 'hub',
+    title: 'Convenient',
+    tag: 'Single Concierge Line',
+    desc: 'One consolidated trusted entity. Eliminate the cognitive fatigue of managing five separate contractors. Aisance Group provides a unified concierge desk, single-point invoicing, and effortless multi-service scheduling.',
+  },
+  {
+    num: 'Pillar 04',
+    icon: 'support_agent',
+    title: 'Customer-Focused',
+    tag: 'Bespoke Retainers',
+    desc: 'Tailored to your lifestyle and institutional rhythm. We listen with intentional precision, craft bespoke retainers, and measure our success strictly through your lasting peace of mind.',
+  },
+];
+
+const testimonials = [
+  {
+    quote: 'Managing document couriers and dawn chamber sanitization across two office towers was a logistical nightmare. Aisance brought seamless cohesion. Their dispatchers are punctual, suited, and completely discreet.',
+    author: 'Tunde B. SAN',
+    role: 'Managing Partner, Commercial Law Practice',
+    location: 'Victoria Island, Lagos',
+  },
+  {
+    quote: 'For our residential estate, entrusting someone with keys and garments is sacred. Aisance handles our seasonal linen renewal, weekly deep cleaning, and direct farm food thrifts with exceptional care.',
+    author: 'Folashade Adeleke',
+    role: 'Private Estate Custodian',
+    location: 'Ikoyi, Lagos',
+  },
+  {
+    quote: 'Our guests constantly compliment our custom-blended lemongrass shower gels and spotless suite turnarounds. Aisance manufactures our bespoke toiletries while handling our linen cycles with military precision.',
+    author: 'Marc V.',
+    role: 'General Manager, Luxury Boutique Hotel',
+    location: 'Lekki Phase 1, Lagos',
+  },
+];
+
+const divisions = [
+  { num: '01', name: 'Toiletries Production', desc: 'Hypoallergenic soap, cleansers, room sprays', icon: 'spa' },
+  { num: '02', name: 'Cleaning Services', desc: 'Deep residential & corporate janitorial care', icon: 'cleaning_services' },
+  { num: '03', name: 'Dry Cleaning Services', desc: 'Couture fabrics, executive starching & pick-up', icon: 'dry_cleaning' },
+  { num: '04', name: 'Food Thrift', desc: 'Farm-gate staples & bulk household procurement', icon: 'inventory_2' },
+  { num: '05', name: 'Errand & Logistics', desc: 'Secure transit, VIP deliveries & document courier', icon: 'local_shipping' },
+];
+---
+
+<BaseLayout title={seoTitle} description={seoDescription}>
+  <!-- Page Hero -->
+  <section class="relative w-full overflow-hidden bg-[#FCF9F8] py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <!-- Breadcrumb & Eyebrow Pill -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#EAE7E7] text-[#12372A] font-sans text-xs uppercase tracking-widest font-semibold border border-[#DDE7E1]">
+          <span class="material-symbols-outlined text-[16px] text-[#C9A24A]">verified_user</span>
+          <span>The Aisance Promise &amp; Service Philosophy</span>
+        </div>
+        <Breadcrumbs items={breadcrumbs} />
+      </div>
+
+      <!-- Main Headline Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-8 flex flex-col gap-6">
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-[60px] lg:leading-[68px] text-[#12372A] tracking-tight font-normal">
+            Why People Choose <span class="italic text-[#C9A24A]">Aisance.</span>
+          </h1>
+          <p class="font-sans text-base sm:text-lg text-[#414844] max-w-2xl leading-relaxed">
+            In an era of fragmented services and uncertain reliability, Aisance Group offers an enduring sanctuary of dependability. Discover the core philosophy that drives Nigeria's most discerning families and premier enterprises to entrust their daily operations to our care.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <Button href="tel:08141937193" variant="primary" size="lg">
+              <span>Talk to Aisance Group</span>
+              <span class="material-symbols-outlined text-sm ml-2">arrow_forward</span>
+            </Button>
+            <Button href="#foundational-pillars" variant="secondary" size="lg">
+              <span>Explore Foundational Pillars</span>
+              <span class="material-symbols-outlined text-sm ml-2">south</span>
+            </Button>
+          </div>
+        </div>
+
+        <!-- Metric Accent Pill -->
+        <div class="lg:col-span-4 flex flex-col gap-4">
+          <div class="p-8 rounded-2xl bg-[#FFFFFF] shadow-sm border border-[#DDE7E1] relative overflow-hidden">
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="font-serif text-4xl sm:text-5xl text-[#12372A] font-bold">99.4%</span>
+              <span class="font-sans text-xs text-[#C9A24A] font-bold uppercase tracking-widest">SLA Compliance</span>
+            </div>
+            <p class="font-sans text-xs text-[#414844] mb-4 leading-relaxed">
+              Measured quarterly across 5 multi-disciplinary divisions spanning facility management, artisanal formulations, and express logistical networks.
+            </p>
+            <div class="w-full bg-[#F0EDED] h-2 rounded-full overflow-hidden">
+              <div class="bg-[#12372A] h-full w-[99.4%] rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Imagery Diptych -->
+  <section class="w-full max-w-7xl mx-auto px-6 lg:px-12 -mt-4 mb-24">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+      <div class="md:col-span-7 rounded-2xl overflow-hidden shadow-xl bg-[#EAE7E7] min-h-[380px] lg:min-h-[460px] relative group border border-[#DDE7E1]">
+        <img
+          src="/images/cleaning.png"
+          alt="Aisance Group curated living environments"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          width="700"
+          height="460"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#12372A]/85 via-[#12372A]/20 to-transparent flex flex-col justify-end p-8 text-[#FCF9F8]">
+          <span class="font-sans text-xs uppercase tracking-widest text-[#FFDF9E] font-bold mb-1">Division 02 &amp; Household Concierge</span>
+          <p class="font-serif text-xl sm:text-2xl font-normal leading-snug">Curated environments maintained to pristine sanctuary standards.</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 flex flex-col gap-6">
+        <div class="h-full rounded-2xl overflow-hidden shadow-xl bg-[#EAE7E7] min-h-[280px] relative group border border-[#DDE7E1]">
+          <img
+            src="/images/dry-cleaning.png"
+            alt="Garment and fabric stewardship by Aisance Group"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            width="500"
+            height="280"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#12372A]/85 via-[#12372A]/20 to-transparent flex flex-col justify-end p-6 text-[#FCF9F8]">
+            <span class="font-sans text-xs uppercase tracking-widest text-[#FFDF9E] font-bold mb-1">Divisions 01 &amp; 03</span>
+            <p class="font-serif text-lg font-normal leading-snug">Fabric longevity &amp; bespoke personal care formulations.</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#12372A] text-[#FCF9F8] flex items-center justify-between shadow-lg border border-[#C9A24A]/40">
+          <div>
+            <span class="font-sans text-xs uppercase tracking-widest text-[#FFDF9E] font-bold block mb-1">Consolidated Governance</span>
+            <span class="font-serif text-xl font-normal text-white">One Contract. Complete Peace.</span>
+          </div>
+          <span class="material-symbols-outlined text-[#FFDF9E] text-3xl">verified</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: The Four Foundational Pillars -->
+  <section class="w-full py-20 bg-[#F6F3F2] border-y border-[#DDE7E1]" id="foundational-pillars">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-3xl mb-16">
+        <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Uncompromising Foundations</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2 mb-4 font-normal">Four Pillars of Sovereign Reliability</h2>
+        <p class="font-sans text-base text-[#414844] leading-relaxed">
+          We built Aisance Group to solve the core vulnerability of contemporary estate and enterprise management: service fragmentation. Each pillar is codified into daily operating standard procedures across our divisions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {pillars.map((p) => (
+          <div class="bg-[#FFFFFF] p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group border border-[#DDE7E1]">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-[#F0EDED] flex items-center justify-center text-[#12372A] mb-6 group-hover:bg-[#12372A] group-hover:text-white transition-colors shadow-sm">
+                <span class="material-symbols-outlined text-2xl">{p.icon}</span>
+              </div>
+              <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold block mb-1">{p.num}</span>
+              <h3 class="font-serif text-2xl text-[#12372A] mb-3 font-semibold">{p.title}</h3>
+              <p class="font-sans text-sm text-[#414844] leading-relaxed">
+                {p.desc}
+              </p>
+            </div>
+            <div class="mt-8 pt-4 border-t border-[#DDE7E1]/50 flex items-center justify-between text-[#414844] font-sans text-xs">
+              <span class="font-semibold text-[#12372A]">{p.tag}</span>
+              <span class="material-symbols-outlined text-[#C9A24A] text-base">check_circle</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Testimonials of Trust -->
+  <section class="w-full py-24 bg-[#FCF9F8]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-2xl mb-16">
+        <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Voices of Stewardship</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2 font-normal">Testimonials of Trust</h2>
+        <p class="font-sans text-base text-[#414844] mt-2 leading-relaxed">
+          Read candid perspectives from the corporate leaders and estate custodians who depend on Aisance daily.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((t) => (
+          <div class="p-8 rounded-2xl bg-[#FFFFFF] shadow-sm flex flex-col justify-between relative border border-[#DDE7E1]">
+            <div>
+              <span class="material-symbols-outlined text-[#C9A24A] text-4xl mb-4">format_quote</span>
+              <p class="font-serif text-lg text-[#1C1B1B] leading-relaxed mb-6 italic">
+                "{t.quote}"
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#DDE7E1]/60">
+              <strong class="font-serif text-xl text-[#12372A] block font-semibold">{t.author}</strong>
+              <span class="font-sans text-xs text-[#414844] block mt-0.5">{t.role}</span>
+              <span class="font-sans text-xs text-[#C9A24A] uppercase tracking-widest mt-1 block font-semibold">{t.location}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: The Multi-Division Guarantee -->
+  <section class="w-full py-20 bg-[#F6F3F2] border-t border-[#DDE7E1]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="p-8 lg:p-12 rounded-3xl bg-[#FFFFFF] shadow-md border border-[#DDE7E1]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 flex flex-col gap-4">
+            <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">The Holding Ecosystem</span>
+            <h3 class="font-serif text-3xl sm:text-4xl text-[#12372A] font-normal">Our Unified Multi-Division Guarantee</h3>
+            <p class="font-sans text-sm sm:text-base text-[#414844] leading-relaxed">
+              When you engage Aisance for any single service—be it weekly bulk pantry provisions or executive garment pressing—you receive the full operational backing of our parent holding company. One standard of excellence, zero compromises.
+            </p>
+            <div class="grid grid-cols-2 gap-4 mt-2">
+              <div class="p-4 rounded-xl bg-[#F6F3F2] border border-[#DDE7E1]">
+                <span class="font-serif text-2xl text-[#12372A] font-bold block">100%</span>
+                <span class="font-sans text-xs text-[#414844] uppercase tracking-wider font-semibold">Service Guarantee</span>
+              </div>
+              <div class="p-4 rounded-xl bg-[#F6F3F2] border border-[#DDE7E1]">
+                <span class="font-serif text-2xl text-[#12372A] font-bold block">24 / 7</span>
+                <span class="font-sans text-xs text-[#414844] uppercase tracking-wider font-semibold">Escalation Desk</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 flex flex-col gap-3">
+            {divisions.map((d) => (
+              <div class="p-4 rounded-xl bg-[#FCF9F8] border border-[#DDE7E1] flex items-center justify-between hover:border-[#C9A24A] transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="font-sans text-xs text-[#C9A24A] font-bold">{d.num}</span>
+                  <div>
+                    <h4 class="font-serif text-lg text-[#12372A] font-semibold">{d.name}</h4>
+                    <span class="font-sans text-xs text-[#414844]">{d.desc}</span>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-[#C9A24A] text-lg">{d.icon}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Prominent Call to Action (CTA) -->
+  <section class="w-full py-24 bg-[#12372A] text-[#FCF9F8] relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#FCF9F8]/10 text-[#FFDF9E] font-sans text-xs uppercase tracking-widest mb-6 border border-[#C9A24A]/30 font-semibold">
+        <span class="material-symbols-outlined text-sm">handshake</span>
+        <span>Begin Your Retainer Consultation</span>
+      </div>
+
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight mb-6 font-normal">
+        Ready to Elevate Your Everyday Operations?
+      </h2>
+
+      <p class="font-sans text-base sm:text-lg text-[#A8CFBD] max-w-2xl mx-auto mb-10 leading-relaxed">
+        Discover how simple life becomes when you have one trusted name for all your essential needs. Join the executives, diplomats, and private residences who entrust their standards to Aisance.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/request-service" variant="gold" size="lg">
+          <span>Request a Service</span>
+          <span class="material-symbols-outlined text-base ml-2">send</span>
+        </Button>
+        <Button href="tel:08141937193" variant="secondary" size="lg" className="border-[#FCF9F8] text-[#FCF9F8] hover:bg-[#FCF9F8]/10">
+          <span class="material-symbols-outlined text-base mr-2 text-[#FFDF9E]">call</span>
+          <span>Call Concierge (08141937193)</span>
+        </Button>
+      </div>
+
+      <div class="mt-12 pt-8 flex flex-wrap items-center justify-center gap-8 text-[#A8CFBD] font-sans text-xs uppercase tracking-wider border-t border-[#C9A24A]/20">
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#FFDF9E] text-sm">verified</span>
+          Bonded Personnel
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#FFDF9E] text-sm">verified</span>
+          Lagos &amp; Nationwide Reach
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#FFDF9E] text-sm">verified</span>
+          Single Unified Invoicing
+        </span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

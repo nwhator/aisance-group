@@ -1,0 +1,99 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  schema?: Record<string, any> | Array<Record<string, any>>;
+}
+
+const {
+  title,
+  description,
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://aisancegroup.com').href,
+  ogImage = new URL('/images/toiletries.png', Astro.site || 'https://aisancegroup.com').href,
+  ogType = 'website',
+  schema,
+} = Astro.props;
+
+const siteName = 'Aisance Group';
+
+// Base Organization & LocalBusiness Schemas (strictly accurate to provided info)
+const baseSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Aisance Group',
+    url: 'https://aisancegroup.com',
+    logo: 'https://aisancegroup.com/images/toiletries.png',
+    description: 'Premier diversified Nigerian services holding specializing in toiletries production, home & commercial cleaning, dry cleaning, food thrift, and errand & logistics.',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+2348141937193',
+      contactType: 'customer service',
+      email: 'hello.aisancegroup@gmail.com',
+      areaServed: 'NG',
+      availableLanguage: ['en'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Aisance Group',
+    telephone: '+2348141937193',
+    email: 'hello.aisancegroup@gmail.com',
+    url: 'https://aisancegroup.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'NG',
+    },
+    areaServed: 'Nigeria',
+    priceRange: '$$',
+  },
+];
+
+const allSchemas = schema
+  ? Array.isArray(schema)
+    ? [...baseSchemas, ...schema]
+    : [...baseSchemas, schema]
+  : baseSchemas;
+---
+
+<!-- Global SEO Metadata -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:type" content={ogType} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="en_NG" />
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Preconnect Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+/>
+
+<!-- Structured Data -->
+{allSchemas.map((s) => (
+  <script type="application/ld+json" set:html={JSON.stringify(s)} />
+))}
