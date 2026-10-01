@@ -189,7 +189,7 @@ const divisions = [
 
   <!-- Section 1: The Aisance Story -->
   <section class="w-full bg-[#F6F3F2] py-20 lg:py-28 border-y border-[#DDE7E1]">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 reveal-on-scroll">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 flex flex-col gap-6">
           <div class="inline-flex items-center gap-2 text-[#C9A24A]">
@@ -203,7 +203,7 @@ const divisions = [
 
           <div class="space-y-4 text-[#1C1B1B] font-sans text-base leading-relaxed">
             <p>
-              In a rapidly expanding, intricate urban environment such as Lagos, Abuja, and metropolitan Nigeria, households and corporations encounter profound domestic friction. Everyday life is burdened by fragmented service vendors, erratic quality benchmarks, unpredictable pricing, and an absence of genuine accountability.
+              Headquartered in Edo State and serving families and corporations across metropolitan Nigeria, Aisance Group was founded as a resolute answer to everyday domestic and operational friction. Everyday life is all too often burdened by fragmented service vendors, erratic quality benchmarks, unpredictable pricing, and an absence of genuine accountability.
             </p>
             <p class="text-[#414844]">
               Aisance Group was founded as a resolute answer to this fragmentation. Rather than juggling disconnected artisans, casual cleaners, and unbonded couriers, our patrons rely on a unified institutional home. We established an interlocking ecosystem where five vital daily disciplines operate under one uncompromising standard of certified excellence.
@@ -246,7 +246,7 @@ const divisions = [
   <!-- Section 2: Core Values -->
   <section class="w-full bg-[#FCF9F8] py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="max-w-3xl mb-16">
+      <div class="max-w-3xl mb-16 reveal-on-scroll">
         <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold block mb-2">Our Principles</span>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] font-normal">
           The Foundations of Our Stewardship
@@ -257,8 +257,8 @@ const divisions = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {values.map((v) => (
-          <div class="p-8 rounded-xl bg-[#FFFFFF] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between border border-[#DDE7E1]">
+        {values.map((v, idx) => (
+          <div class={`p-8 rounded-xl bg-[#FFFFFF] shadow-sm card-hover-lift flex flex-col justify-between h-full border border-[#DDE7E1] reveal-on-scroll stagger-${(idx % 4) + 1}`}>
             <div>
               <div class="w-12 h-12 rounded-lg bg-[#F0EDED] flex items-center justify-center text-[#C9A24A] mb-6 shadow-sm">
                 <span class="material-symbols-outlined text-2xl">{v.icon}</span>

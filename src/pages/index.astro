@@ -115,7 +115,7 @@ const steps = [
         <div class="lg:col-span-7 flex flex-col items-start z-10">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#EAE7E7] text-[#12372A] mb-6 shadow-sm border border-[#DDE7E1]">
             <span class="material-symbols-outlined text-[16px] text-[#C9A24A]">verified</span>
-            <span class="font-sans text-xs uppercase tracking-widest text-[#12372A] font-semibold">Premier Nigerian Enterprise</span>
+            <span class="font-sans text-xs uppercase tracking-widest text-[#12372A] font-semibold">Premier Nigerian Enterprise &bull; Edo State &amp; Nationwide</span>
           </div>
 
           <h1 class="font-serif text-4xl sm:text-5xl lg:text-[62px] lg:leading-[68px] text-[#12372A] tracking-tight font-normal">
@@ -193,9 +193,9 @@ const steps = [
           <span class="material-symbols-outlined text-[#C9A24A] text-[18px]">verified</span>
           <span class="font-sans text-xs font-semibold tracking-wider uppercase text-[#12372A]">Residential &amp; Corporate Excellence</span>
         </div>
-        <div class="hidden md:flex items-center gap-2">
-          <span class="material-symbols-outlined text-[#C9A24A] text-[18px]">eco</span>
-          <span class="font-sans text-xs font-semibold tracking-wider uppercase text-[#12372A]">Eco-conscious Formulation</span>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C9A24A] text-[18px]">location_on</span>
+          <span class="font-sans text-xs font-semibold tracking-wider uppercase text-[#12372A]">Edo State &bull; Nationwide Reach</span>
         </div>
         <div class="hidden lg:flex items-center gap-2">
           <span class="material-symbols-outlined text-[#C9A24A] text-[18px]">support_agent</span>
@@ -211,14 +211,14 @@ const steps = [
 
   <!-- STATEMENT OF PURPOSE / SHORT INTRO -->
   <section class="w-full bg-[#FCF9F8] py-16 lg:py-24">
-    <div class="max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+    <div class="max-w-4xl mx-auto px-6 text-center flex flex-col items-center reveal-on-scroll">
       <div class="w-12 h-1 rounded-full bg-[#C9A24A] mb-6"></div>
       <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold mb-3">Our Core Philosophy</span>
       <h2 class="font-serif text-3xl sm:text-4xl text-[#12372A] tracking-tight font-normal leading-snug">
         Built on the principles of integrity, excellence, and effortless living.
       </h2>
       <p class="font-sans text-base sm:text-lg text-[#414844] mt-6 leading-relaxed max-w-3xl">
-        Aisance Group operates as a distinguished parent brand delivering everyday solutions with uncompromising standards across Nigeria. We harmonize multiple domestic and institutional verticals into a unified standard of dependability.
+        Aisance Group operates as a distinguished parent brand delivering everyday solutions with uncompromising standards across Edo State and nationwide Nigeria. We harmonize multiple domestic and institutional verticals into a unified standard of dependability.
       </p>
     </div>
   </section>
@@ -227,7 +227,7 @@ const steps = [
   <section class="w-full bg-[#FFFFFF] py-20 lg:py-28 shadow-sm border-y border-[#DDE7E1]" id="services">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 reveal-on-scroll">
         <div>
           <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold block mb-2">Our Portfolio</span>
           <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] font-normal">
@@ -243,16 +243,17 @@ const steps = [
       <!-- Divisions Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {divisions.map((div, index) => (
-          <ServiceCard
-            number={div.number}
-            title={div.title}
-            category={div.category}
-            description={div.description}
-            tag={div.tag}
-            href={div.href}
-            imageSrc={div.imageSrc}
-            className={index === 4 ? 'md:col-span-2 lg:col-span-2' : ''}
-          />
+          <div class={`reveal-on-scroll stagger-${(index % 3) + 1} ${index === 4 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
+            <ServiceCard
+              number={div.number}
+              title={div.title}
+              category={div.category}
+              description={div.description}
+              tag={div.tag}
+              href={div.href}
+              imageSrc={div.imageSrc}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -261,7 +262,7 @@ const steps = [
   <!-- WHY AISANCE GROUP (THE 4 PILLARS) -->
   <section class="w-full bg-[#FCF9F8] py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="max-w-3xl mb-16">
+      <div class="max-w-3xl mb-16 reveal-on-scroll">
         <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold block mb-2">Our Foundation</span>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] font-normal">
           Why Discerning Clients<br />
@@ -273,8 +274,8 @@ const steps = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {pillars.map((pillar) => (
-          <div class="p-8 rounded-xl bg-[#FFFFFF] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full border border-[#DDE7E1]">
+        {pillars.map((pillar, idx) => (
+          <div class={`p-8 rounded-xl bg-[#FFFFFF] shadow-sm card-hover-lift flex flex-col justify-between h-full border border-[#DDE7E1] reveal-on-scroll stagger-${(idx % 4) + 1}`}>
             <div>
               <div class="w-12 h-12 rounded-lg bg-[#F0EDED] flex items-center justify-center text-[#C9A24A] mb-6 shadow-sm">
                 <span class="material-symbols-outlined text-2xl">{pillar.icon}</span>
@@ -296,7 +297,7 @@ const steps = [
   <!-- HOW IT WORKS (3 STEPS) -->
   <section class="w-full bg-[#F6F3F2] py-20 lg:py-28 border-y border-[#DDE7E1]">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
         <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold block mb-2">Simplicity by Design</span>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] font-normal">How It Works</h2>
         <p class="font-sans text-sm sm:text-base text-[#414844] mt-3">
@@ -305,8 +306,8 @@ const steps = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-        {steps.map((step) => (
-          <div class="p-8 rounded-xl bg-[#FCF9F8] shadow-sm relative z-10 flex flex-col border border-[#DDE7E1]">
+        {steps.map((step, idx) => (
+          <div class={`p-8 rounded-xl bg-[#FCF9F8] shadow-sm card-hover-lift relative z-10 flex flex-col border border-[#DDE7E1] reveal-on-scroll stagger-${(idx % 3) + 1}`}>
             <div class="font-serif text-4xl text-[#C9A24A] mb-4 font-bold">{step.num}</div>
             <h3 class="font-serif text-2xl text-[#12372A] mb-3 font-semibold">{step.title}</h3>
             <p class="font-sans text-sm text-[#414844] leading-relaxed flex-grow">
@@ -324,7 +325,7 @@ const steps = [
 
   <!-- IMPACTFUL CTA BANNER -->
   <section class="w-full bg-[#12372A] py-20 lg:py-28 relative overflow-hidden text-[#FCF9F8]">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 reveal-on-scroll">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-8">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#FCF9F8]/10 text-[#FFDF9E] mb-4 border border-[#C9A24A]/30">

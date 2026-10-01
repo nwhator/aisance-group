@@ -47,19 +47,19 @@ const testimonials = [
     quote: 'Managing document couriers and dawn chamber sanitization across two office towers was a logistical nightmare. Aisance brought seamless cohesion. Their dispatchers are punctual, suited, and completely discreet.',
     author: 'Tunde B. SAN',
     role: 'Managing Partner, Commercial Law Practice',
-    location: 'Victoria Island, Lagos',
+    location: 'GRA, Benin City',
   },
   {
     quote: 'For our residential estate, entrusting someone with keys and garments is sacred. Aisance handles our seasonal linen renewal, weekly deep cleaning, and direct farm food thrifts with exceptional care.',
     author: 'Folashade Adeleke',
     role: 'Private Estate Custodian',
-    location: 'Ikoyi, Lagos',
+    location: 'Benin City, Edo State',
   },
   {
     quote: 'Our guests constantly compliment our custom-blended lemongrass shower gels and spotless suite turnarounds. Aisance manufactures our bespoke toiletries while handling our linen cycles with military precision.',
     author: 'Marc V.',
     role: 'General Manager, Luxury Boutique Hotel',
-    location: 'Lekki Phase 1, Lagos',
+    location: 'Edo State & Interstate',
   },
 ];
 
@@ -205,7 +205,7 @@ const divisions = [
   <!-- Section 2: Testimonials of Trust -->
   <section class="w-full py-24 bg-[#FCF9F8]">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="max-w-2xl mb-16">
+      <div class="max-w-2xl mb-16 reveal-on-scroll">
         <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">Voices of Stewardship</span>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#12372A] mt-2 font-normal">Testimonials of Trust</h2>
         <p class="font-sans text-base text-[#414844] mt-2 leading-relaxed">
@@ -214,8 +214,8 @@ const divisions = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {testimonials.map((t) => (
-          <div class="p-8 rounded-2xl bg-[#FFFFFF] shadow-sm flex flex-col justify-between relative border border-[#DDE7E1]">
+        {testimonials.map((t, idx) => (
+          <div class={`p-8 rounded-2xl bg-[#FFFFFF] shadow-sm card-hover-lift flex flex-col justify-between relative border border-[#DDE7E1] reveal-on-scroll stagger-${(idx % 3) + 1}`}>
             <div>
               <span class="material-symbols-outlined text-[#C9A24A] text-4xl mb-4">format_quote</span>
               <p class="font-serif text-lg text-[#1C1B1B] leading-relaxed mb-6 italic">
@@ -236,7 +236,7 @@ const divisions = [
   <!-- Section 3: The Multi-Division Guarantee -->
   <section class="w-full py-20 bg-[#F6F3F2] border-t border-[#DDE7E1]">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="p-8 lg:p-12 rounded-3xl bg-[#FFFFFF] shadow-md border border-[#DDE7E1]">
+      <div class="p-8 lg:p-12 rounded-3xl bg-[#FFFFFF] shadow-md border border-[#DDE7E1] reveal-on-scroll">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-6 flex flex-col gap-4">
             <span class="font-sans text-xs uppercase tracking-widest text-[#C9A24A] font-bold">The Holding Ecosystem</span>
@@ -309,7 +309,7 @@ const divisions = [
         </span>
         <span class="flex items-center gap-2">
           <span class="material-symbols-outlined text-[#FFDF9E] text-sm">verified</span>
-          Lagos &amp; Nationwide Reach
+          Edo State Hub &amp; Nationwide Reach
         </span>
         <span class="flex items-center gap-2">
           <span class="material-symbols-outlined text-[#FFDF9E] text-sm">verified</span>

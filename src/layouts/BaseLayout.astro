@@ -2,6 +2,7 @@
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import QuickActions from '../components/QuickActions.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -41,6 +42,14 @@ const currentPath = Astro.url.pathname;
     />
   </head>
   <body class="bg-[#FCF9F8] font-sans text-[#1C1B1B] antialiased selection:bg-[#C9A24A]/20 selection:text-[#12372A]">
+    <!-- Accessibility Skip Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#12372A] focus:text-[#F7F5EF] focus:border focus:border-[#C9A24A] focus:rounded-md focus:shadow-xl focus:font-sans focus:text-xs focus:uppercase focus:tracking-wider focus:outline-none"
+    >
+      Skip to main content
+    </a>
+
     <Header currentPath={currentPath} />
     
     <main class="w-full pt-20 bg-[#FCF9F8] min-h-[calc(100vh-20rem)] flex-grow focus:outline-none" id="main-content" tabindex="-1">
@@ -48,5 +57,42 @@ const currentPath = Astro.url.pathname;
     </main>
 
     <Footer />
+    <QuickActions />
+
+    <script>
+      function setupScrollReveal() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+            el.classList.add('is-revealed');
+          });
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.1,
+          }
+        );
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+          observer.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupScrollReveal);
+      } else {
+        setupScrollReveal();
+      }
+    </script>
   </body>
 </html>
